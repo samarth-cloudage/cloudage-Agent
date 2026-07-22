@@ -1,9 +1,25 @@
 import { Resend } from "resend";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
 export default {
   async fetch(request, env) {
+    // Handle browser preflight request
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        headers: corsHeaders,
+      });
+    }
+
+    // Only allow POST
     if (request.method !== "POST") {
-      return new Response("CloudAge Contact API is running 🚀");
+      return new Response("CloudAge Contact API is running 🚀", {
+        headers: corsHeaders,
+      });
     }
 
     try {
@@ -19,34 +35,40 @@ export default {
           <h2>New Contact Form Submission</h2>
 
           <p><strong>Name:</strong> ${name}</p>
-
           <p><strong>Email:</strong> ${email}</p>
-
           <p><strong>Phone:</strong> ${phone}</p>
-
           <p><strong>Interest:</strong> ${interest}</p>
-
           <p><strong>Message:</strong></p>
-
           <p>${message}</p>
         `,
       });
 
       if (error) {
-        return Response.json(error, { status: 500 });
+        return Response.json(error, {
+          status: 500,
+          headers: corsHeaders,
+        });
       }
 
-      return Response.json({
-        success: true,
-        message: "Email sent successfully",
-      });
+      return Response.json(
+        {
+          success: true,
+          message: "Email sent successfully",
+        },
+        {
+          headers: corsHeaders,
+        },
+      );
     } catch (err) {
       return Response.json(
         {
           success: false,
           error: err.message,
         },
-        { status: 500 },
+        {
+          status: 500,
+          headers: corsHeaders,
+        },
       );
     }
   },
