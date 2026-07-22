@@ -1,0 +1,44 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import GlowCursor from "./components/GlowCursor";
+import ScrollToTop from "./components/ScrollToTop";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Contact from "./pages/Contact";
+
+import "./App.css";
+
+function App() {
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+
+      <GlowCursor />
+      <Navbar />
+
+      <main className="page-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </BrowserRouter>
+  );
+}
+
+export default App;

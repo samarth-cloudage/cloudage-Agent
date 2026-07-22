@@ -1,0 +1,534 @@
+/* ================================
+            NAVBAR
+================================ */
+
+/* Push page content below the fixed navbar so first card is never hidden */
+body {
+  padding-top: 84px; /* navbar min-height 56px + padding 14px top+bottom */
+}
+
+@media (max-width: 992px) { body { padding-top: 84px; } }
+@media (max-width: 768px) { body { padding-top: 76px; } }
+@media (max-width: 480px) { body { padding-top: 68px; } }
+
+.navbar {
+  position: fixed;        /* changed from sticky — required for hide-on-scroll to work */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 6px 0;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  animation: navbarFade .6s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, .88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(37, 99, 235, .08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+}
+
+@keyframes navbarFade {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+            CONTAINER
+================================ */
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 56px;
+  gap: 16px;
+}
+
+/* ================================
+            LOGO
+================================ */
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform .3s ease;
+  flex-shrink: 0;
+}
+
+.logo-image{
+    height:72px;
+    width:auto;
+    transform:scale(1.25);
+    transform-origin:left center;
+    transition:.35s ease;
+}
+
+.logo:hover .logo-image{
+    transform:scale(1.3);
+}
+
+/* Shown only if the logo image fails to load, so the navbar never
+   shows an empty gap on the left */
+.logo-fallback {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.logo-fallback span {
+  color: #2563eb;
+}
+
+/* ================================
+        DESKTOP NAVIGATION
+================================ */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.desktop-nav a {
+  position: relative;
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+  border-radius: 30px;
+  transition: color .25s ease, background .25s ease, transform .25s ease;
+}
+
+.desktop-nav a:hover {
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+.desktop-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  border-radius: 20px;
+  background: #2563eb;
+  transition: width .25s ease;
+}
+
+.desktop-nav a:hover::after {
+  width: 60%;
+}
+
+.desktop-nav a.active {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.desktop-nav a.active::after {
+  width: 65%;
+}
+
+/* ================================
+            ACTIONS
+================================ */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, .25);
+  white-space: nowrap;
+}
+
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  left: -120%;
+  top: 0;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .35), transparent);
+  transition: left .7s ease;
+}
+
+.nav-btn:hover::before {
+  left: 130%;
+}
+
+.nav-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(37, 99, 235, .35);
+}
+
+/* ==========================================
+            HAMBURGER
+========================================== */
+
+.hamburger {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: rgba(37, 99, 235, .08);
+  border-radius: 12px;
+  color: #2563eb;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.hamburger:hover {
+  background: #2563eb;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+            OVERLAY
+========================================== */
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, .45);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s ease, visibility .35s ease;
+  z-index: 1001;
+}
+
+.mobile-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================
+            MOBILE MENU
+========================================== */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 340px;
+  max-width: 88vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  transition: right .4s cubic-bezier(.22, 1, .36, 1);
+  z-index: 1002;
+  box-shadow: -20px 0 60px rgba(15, 23, 42, .15);
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.close-btn {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 12px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.close-btn:hover {
+  background: #2563eb;
+  color: white;
+  transform: rotate(90deg);
+}
+
+.mobile-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+/* ==========================================
+            MOBILE LINKS
+========================================== */
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobile-links a {
+  position: relative;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  overflow: hidden;
+  transition: background .25s ease, color .25s ease, padding-left .25s ease;
+  opacity: 0;
+  animation: slideIn .45s ease forwards;
+}
+
+.mobile-links a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #2563eb;
+  transform: scaleY(0);
+  transition: transform .25s ease;
+}
+
+.mobile-links a:hover {
+  background: #eff6ff;
+  color: #2563eb;
+  padding-left: 26px;
+}
+
+.mobile-links a:hover::before,
+.mobile-links a.active::before {
+  transform: scaleY(1);
+}
+
+.mobile-links a.active {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.mobile-links a:nth-child(1) { animation-delay: .08s; }
+.mobile-links a:nth-child(2) { animation-delay: .14s; }
+.mobile-links a:nth-child(3) { animation-delay: .20s; }
+.mobile-links a:nth-child(4) { animation-delay: .26s; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ==========================================
+            MOBILE CTA
+========================================== */
+
+.mobile-btn {
+  position: relative;
+  overflow: hidden;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  transition: transform .3s ease;
+  box-shadow: 0 14px 32px rgba(37, 99, 235, .25);
+}
+
+.mobile-btn::before {
+  content: "";
+  position: absolute;
+  left: -120%;
+  top: 0;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .35), transparent);
+  transition: left .7s ease;
+}
+
+.mobile-btn:hover::before {
+  left: 130%;
+}
+
+.mobile-btn:hover {
+  transform: translateY(-3px);
+}
+
+
+/* ==========================
+   Hide / Show Navbar
+   — Google-style: fast exit, smooth elastic re-entry
+========================== */
+
+/* Scrolling UP  → slow ease-out (Material standard curve) */
+.show-navbar {
+  transform: translateY(0);
+  transition:
+    transform    .38s cubic-bezier(0.4, 0, 0.2, 1),
+    background   .3s  ease,
+    box-shadow   .3s  ease,
+    border-color .3s  ease;
+}
+
+/* Scrolling DOWN → fast ease-in (gets out of the way quickly) */
+.hide-navbar {
+  transform: translateY(-110%);
+  transition:
+    transform    .26s cubic-bezier(0.4, 0, 1, 1),
+    background   .3s  ease,
+    box-shadow   .3s  ease,
+    border-color .3s  ease;
+}
+
+/* ==========================================
+            TABLET
+========================================== */
+
+@media (max-width: 992px) {
+
+  .desktop-nav,
+  .nav-btn {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar {
+    padding: 12px 0;
+  }
+
+  .navbar-container {
+    min-height: 60px;
+  }
+
+  .logo-image {
+    height: 60px;
+    transform: none;
+  }
+
+  .logo:hover .logo-image {
+    transform: none;
+  }
+
+}
+
+
+/* ==========================================
+            MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 10px 0;
+  }
+
+  .navbar-container {
+    min-height: 56px;
+  }
+
+  .logo-image {
+    height: 60px;
+  }
+
+  .logo-fallback {
+    font-size: 18px;
+  }
+
+  .mobile-menu {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  .mobile-header {
+    margin-bottom: 18px;
+  }
+
+  .mobile-links a {
+    font-size: 17px;
+    padding: 14px;
+  }
+
+  .mobile-btn {
+    padding: 15px;
+    font-size: 15px;
+  }
+
+}
+
+
+/* ==========================================
+          SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 8px 0;
+  }
+
+  .navbar-container {
+    min-height: 52px;
+  }
+
+  .logo-image {
+    height: 56px;
+  }
+
+  .mobile-menu {
+    padding: 20px;
+  }
+
+  .mobile-links a {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .mobile-btn {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .close-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+}
