@@ -1,7 +1,6 @@
 import "./Contact.css";
 import { useState } from "react";
 import { motion } from "framer-motion";
-
 import {
   FaMapMarkerAlt,
   FaEnvelope,
@@ -21,7 +20,11 @@ const COMPANY_PHONE = "+91 92651 26818";
 
 // Where the form should POST to. Point this at your own backend route,
 // or swap the handleSubmit logic below for a service like Formspree / EmailJS.
-const CONTACT_ENDPOINT = "http://localhost:5001/api/contact";
+//const CONTACT_ENDPOINT = "http://localhost:5001/api/contact";
+
+//const CONTACT_ENDPOINT = import.meta.env.VITE_API_URL; nodemailer 
+
+const CONTACT_ENDPOINT = import.meta.env.VITE_API_URL_RESEND; // resend
 
 /* const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(
   "Cloud Age Informatica Pvt. Ltd., " + COMPANY_ADDRESS
