@@ -11,7 +11,7 @@ FaBolt,
 FaShieldAlt
 } from "react-icons/fa";
 
-
+import { MdVerified } from "react-icons/md";
 /* ================= CONFIG — edit these for your real details ================= */
 //const COMPANY_ADDRESS =
  // "409 Soham Arcade, Nr Bagban circle, Gauravpath road, Surat, Gujarat 394510";
@@ -315,7 +315,7 @@ function Contact() {
             transition={{ duration: 0.6, delay: 0.35 }}
           >
             <span className="trust-chip">
-              <FaCertificate /> Salesforce Certified Team
+              <MdVerified /> Salesforce Certified Team
             </span>
             <span className="trust-chip">
               <FaBolt /> Fast, Direct Communication

@@ -39,7 +39,7 @@ import {
   FaCss3Alt,
   FaAngular,
 } from "react-icons/fa";
-
+import { MdVerified } from "react-icons/md";
 /* ---------- count-up used in the stats row (same pattern as About.jsx) ---------- */
 
 
@@ -351,7 +351,7 @@ function Services() {
 
         <motion.div className="section-title" {...fadeUp()}>
           <span className="pill-tag">
-           <FaCheckCircle style={{ position: "relative", top: "2px", marginRight: "6px" }} />
+           <MdVerified style={{ position: "relative", top: "2px", marginRight: "6px" }} />
             CERTIFIED &amp; TRUSTED
           </span>
           <h2>Backed By The Credentials That Matters</h2>
@@ -517,7 +517,7 @@ function Services() {
             transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
           >
             <span className="cta-card-badge">
-              <FaCheckCircle /> Certified Salesforce Partner
+              <MdVerified /> Certified Salesforce Partner
             </span>
 
             <a href="tel:+919265126818" className="cta-card-phone">
