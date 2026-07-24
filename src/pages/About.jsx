@@ -74,10 +74,65 @@ const team = [
     line: "Answers before small issues turn into Monday-morning fires.",
   },
 ];
+import { Helmet } from "react-helmet-async";
 
 function About() {
   return (
     <div className="ca-about-blue">
+         <Helmet>
+
+  <title>About CloudAge Informatica | Salesforce Experts</title>
+
+  <meta
+    name="description"
+    content="Learn about CloudAge Informatica, our certified Salesforce experts, experience and approach to CRM transformation."
+  />
+
+  <link
+    rel="canonical"
+    href="https://cloudage-website.pages.dev/about"
+  />
+
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+
+  <meta
+    property="og:title"
+    content="About CloudAge Informatica | Salesforce Experts"
+  />
+
+  <meta
+    property="og:description"
+    content="Learn about CloudAge Informatica, our certified Salesforce experts, experience and approach to CRM transformation."
+  />
+
+  <meta
+    property="og:url"
+    content="https://cloudage-website.pages.dev/about"
+  />
+
+  <meta
+    property="og:image"
+    content="https://cloudage-website.pages.dev/CloudAgeLogo.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="CloudAge Informatica Salesforce Consulting"
+  />
+
+  <meta
+    property="og:site_name"
+    content="CloudAge Informatica"
+  />
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  />
+
+</Helmet>
       {/* ================= HERO ================= */}
       <section className="hero">
         <div className="hero-grid-lines" aria-hidden="true" />

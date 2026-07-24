@@ -151,12 +151,66 @@ const certificateImages = import.meta.glob(
 const certificates = Object.values(certificateImages).map((img) => ({
   src: img,
 }));
-
+import { Helmet } from "react-helmet-async";
 function Services() {
   const [certSwiper, setCertSwiper] = useState(null);
 
   return (
     <div className="ca-services-blue">
+       <Helmet>
+
+  <title>Salesforce Services | CloudAge Informatica</title>
+
+  <meta
+    name="description"
+    content="Explore Salesforce implementation, Experience Cloud, Service Cloud, integrations and custom Salesforce development."
+  />
+
+  <link
+    rel="canonical"
+    href="https://cloudage-website.pages.dev/services"
+  />
+
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+
+  <meta
+    property="og:title"
+    content="Salesforce Services | CloudAge Informatica"
+  />
+
+  <meta
+    property="og:description"
+    content="Explore Salesforce implementation, Experience Cloud, Service Cloud, integrations and custom Salesforce development."
+  />
+
+  <meta
+    property="og:url"
+    content="https://cloudage-website.pages.dev/services"
+  />
+
+  <meta
+    property="og:image"
+    content="https://cloudage-website.pages.dev/CloudAgeLogo.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="CloudAge Informatica Salesforce Consulting"
+  />
+
+  <meta
+    property="og:site_name"
+    content="CloudAge Informatica"
+  />
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  />
+
+</Helmet>
       {/* ================= HERO ================= */}
       <section className="aboutHero">
 

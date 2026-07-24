@@ -214,11 +214,67 @@ function ContactForm() {
 }
 
 /* ================= PAGE ================= */
+
+import { Helmet } from "react-helmet-async";
 function Contact() {
 
 
   return (
     <div className="ca-contact">
+        <Helmet>
+
+  <title>Contact CloudAge Informatica</title>
+
+  <meta
+    name="description"
+    content="Get in touch with CloudAge Informatica for Salesforce consulting, CRM implementation and digital transformation services."
+  />
+
+  <link
+    rel="canonical"
+    href="https://cloudage-website.pages.dev/contact"
+  />
+
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+
+  <meta
+    property="og:title"
+    content="Contact CloudAge Informatica"
+  />
+
+  <meta
+    property="og:description"
+    content="Get in touch with CloudAge Informatica for Salesforce consulting, CRM implementation and digital transformation services."
+  />
+
+  <meta
+    property="og:url"
+    content="https://cloudage-website.pages.dev/contact"
+  />
+
+  <meta
+    property="og:image"
+    content="https://cloudage-website.pages.dev/CloudAgeLogo.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="CloudAge Informatica Salesforce Consulting"
+  />
+
+  <meta
+    property="og:site_name"
+    content="CloudAge Informatica"
+  />
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  />
+
+</Helmet>
       {/* ================= HERO ================= */}
 <section className="contact-hero">
   <div className="container contact-hero-inner">
