@@ -1242,6 +1242,12 @@
   }
 }
 
+@media(max-width:768px){
+ .certificate-section .swiper-pagination{
+      display:none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ca-services-blue .hero-blob,
   .ca-services-blue .cta-blob,
