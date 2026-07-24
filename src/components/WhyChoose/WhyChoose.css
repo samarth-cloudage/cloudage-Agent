@@ -448,6 +448,19 @@
   .why-v2 .stats-strip{
       padding:32px 0;
   }
+.why-v2 .section-pill {
+  display: inline-block;
+  padding: 9px 40px;
+  border-radius: 999px;
+  background: rgba(37,99,235,.08);
+  border: 1px solid rgba(37,99,235,.15);
+  color: var(--brand);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
 
   .why-v2 .stats-inner{
       grid-template-columns:repeat(3,1fr);
@@ -632,7 +645,7 @@
   .why-v2 .section-pill{
       font-size:11px;
       letter-spacing:1.5px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
   }
 
   .why-v2 .section-head h2{

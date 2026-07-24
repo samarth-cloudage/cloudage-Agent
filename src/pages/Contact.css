@@ -1064,7 +1064,7 @@ padding:30px;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 2px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 .visitor-card{
 
@@ -1098,7 +1098,29 @@ flex-wrap:wrap;
         #4f46e5 100%
     );
 
-    padding:40px 0 100px;
+    padding:40px 0 45px;
+}
+
+
+.global-reach::before {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 35px;
+
+    background: #f8fbff;
+
+    clip-path: polygon(
+        0 100%,
+        100% 0,
+        100% 100%
+    );
+
+    z-index: 2;
 }
 
 .global-title{

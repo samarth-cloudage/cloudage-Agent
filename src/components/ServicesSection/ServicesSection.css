@@ -316,12 +316,27 @@
   .services-v2 .card-5,
   .services-v2 .card-6 { grid-column: span 6; }
 }
+@media (min-width:769px) and (max-width:1024px){
+    .services-v2 .svc-pill {
+  display: inline-block;
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: rgba(37,99,235,.08);
+  border: 1px solid rgba(37,99,235,.15);
+  color: var(--brand);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+}
 
 @media (max-width: 768px) {
   .services-v2 { padding: 40px 0 40px; }
     .services-v2 .svc-pill {
 
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 .services-v2 .svc-cta-text h3 {
   font-family: var(--font-display);

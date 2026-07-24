@@ -471,7 +471,7 @@
   padding: 44px 38px;
   border-radius: 24px;
   text-decoration: none;
-  box-shadow: 0 20px 50px rgba(11, 19, 48, 0.06);
+  /* box-shadow: 0 20px 50px rgba(11, 19, 48, 0.06); */
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .ca-services-blue .pillar-card{
@@ -539,7 +539,7 @@
 
 /* ================= SERVICE BLOCKS ================= */
 .ca-services-blue .service-block {
-  padding: 0px 0;
+  padding: 0px 0 0px;
 }
 
 .ca-services-blue .service-block.alt {
@@ -562,7 +562,7 @@
   background: var(--panel);
   padding: 32px 20px;
   border-radius: 20px;
-  box-shadow: 0 16px 38px rgba(11, 19, 48, 0.06);
+ 
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -1166,7 +1166,7 @@
   opacity: 0.18;
   animation-direction: reverse;
 }
-
+ 
 
 
 /* ================= RESPONSIVE ================= */
@@ -1179,11 +1179,12 @@
   .ca-services-blue .pill-tag {
   display: inline-block;
   padding: 5px 20px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  margin-top: 40px;
 }
  .ca-services-blue .section-title h2 {
     font-size: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   .ca-services-blue .hero-copy h1 {
     font-size: 38px;
@@ -1256,6 +1257,14 @@
  .certificate-section .swiper-pagination{
       display:none;
   }
+
+
+.ca-services-blue .closing-cta {
+  clip-path: polygon(0 35px, 100% 0, 100% 100%, 0 100%);
+  margin-top: -60px;
+}
+
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1298,7 +1307,6 @@
 }
 
 .pillars::before,
-.service-block::before,
 .service-block.alt::before,
 .certificate-section::before{
     content:"";
