@@ -319,6 +319,18 @@
 
 @media (max-width: 768px) {
   .services-v2 { padding: 40px 0 40px; }
+    .services-v2 .svc-pill {
+
+  margin-bottom: 40px;
+}
+.services-v2 .svc-cta-text h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 20px;
+  padding: 0px 0px 20px;
+}
 
   .services-v2 .svc-heading h2 { font-size: 34px; }
 

@@ -747,8 +747,8 @@
 }
 
 .ca-services-blue .closing-cta {
-  clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
-  margin-top: -46px;
+  clip-path: polygon(0 60px, 100% 0, 100% 100%, 0 100%);
+  margin-top: -60px;
 }
 
 /* =====================================
@@ -1174,6 +1174,16 @@
   .ca-services-blue .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .ca-services-blue .pill-tag {
+  display: inline-block;
+  padding: 5px 20px;
+  margin-bottom: 40px;
+}
+ .ca-services-blue .section-title h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
   }
   .ca-services-blue .hero-copy h1 {
     font-size: 38px;

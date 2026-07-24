@@ -547,6 +547,9 @@ font-size:17px;
     font-size: 42px;
     padding: 2px;
   }
+
+
+
   .info-grid {
     grid-template-columns: 1fr;
   }
@@ -1051,7 +1054,18 @@ opacity:0;
 padding:30px;
 
 }
-
+.ca-contact .pill-tag {
+  display: inline-block;
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
 .visitor-card{
 
 flex-direction:column;
@@ -1086,6 +1100,15 @@ flex-wrap:wrap;
 
     padding:40px 0 100px;
 }
+
+.global-title{
+
+    max-width:760px;
+
+    margin:0 auto 0px;
+
+}
+
 
 
 .visitor-card{
