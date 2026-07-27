@@ -32,6 +32,7 @@ body {
   box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
 }
 
+
 @keyframes navbarFade {
   from { opacity: 0; transform: translateY(-16px); }
   to   { opacity: 1; transform: translateY(0); }

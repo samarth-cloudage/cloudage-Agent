@@ -227,7 +227,7 @@ font-size:17px;
 .info-section{
     position:relative;
     padding:40px 0 40px;
-    background:#f8fbff;
+    background:#f2eded;
     overflow:hidden;
 }
 
@@ -275,6 +275,7 @@ font-size:17px;
     position:relative;
 
     background:#ffffff;
+    
 
     border:1px solid var(--border);
 
