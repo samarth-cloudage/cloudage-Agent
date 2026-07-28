@@ -29,7 +29,7 @@ const COMPANY_PHONE = "+91 92651 26818";
 const USE_NODEMAILER =
   import.meta.env.VITE_USE_NODEMAILER === "true";
 
-console.log('kkkkkkkkk'+import.meta.env.VITE_USE_NODEMAILER);
+
 const CONTACT_ENDPOINT = USE_NODEMAILER
   ? import.meta.env.VITE_API_URL
   : import.meta.env.VITE_API_URL_RESEND;
@@ -86,13 +86,9 @@ function ContactForm() {
 
   setError("");
   setStatus("sending");
-console.log("USE_NODEMAILER:", import.meta.env.VITE_USE_NODEMAILER);
-console.log("API_URL:", import.meta.env.VITE_API_URL);
-console.log("API_URL_RESEND:", import.meta.env.VITE_API_URL_RESEND);
-console.log("CONTACT_ENDPOINT:", CONTACT_ENDPOINT);
+
   try {
-    console.log("USE_NODEMAILER:", USE_NODEMAILER);
-console.log("CONTACT_ENDPOINT:", CONTACT_ENDPOINT);
+
     const response = await fetch(CONTACT_ENDPOINT, {
       method: "POST",
       headers: {
