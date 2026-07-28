@@ -24,20 +24,27 @@ const COMPANY_PHONE = "+91 92651 26818";
 
 //const CONTACT_ENDPOINT = import.meta.env.VITE_API_URL; nodemailer 
 
-const CONTACT_ENDPOINT = import.meta.env.VITE_API_URL_RESEND; // resend
+//const CONTACT_ENDPOINT = import.meta.env.VITE_API_URL_RESEND; // resend
+
+const USE_NODEMAILER =
+  import.meta.env.VITE_USE_NODEMAILER === "true";
+
+
+const CONTACT_ENDPOINT = USE_NODEMAILER
+  ? import.meta.env.VITE_API_URL
+  : import.meta.env.VITE_API_URL_RESEND;
+
+// const USE_NODEMAILER = JSON.parse(import.meta.env.VITE_USE_NODEMAILER);
+
+// const CONTACT_ENDPOINT = USE_NODEMAILER
+//   ? import.meta.env.VITE_API_URL
+//   : import.meta.env.VITE_API_URL_RESEND;
 
 /* const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(
   "Cloud Age Informatica Pvt. Ltd., " + COMPANY_ADDRESS
 )}&output=embed`; */
 
 const MAP_EMBED_SRC = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1860.0296112581993!2d72.76991427113325!3d21.18980621579495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04db2480c89d9%3A0x41a9df463ca6ff0d!2sSoham%20Arcade!5e0!3m2!1sen!2sin!4v1784269323800!5m2!1sen!2sin`;
-
-
-
-
-/* ---------- live world clocks ---------- */
-
-
 
 
 /* ---------- contact form ---------- */
@@ -67,6 +74,8 @@ function ContactForm() {
   const handleSubmit = async (e) => {
   e.preventDefault();
 
+
+
   const validationError = validate();
 
   if (validationError) {
@@ -77,7 +86,10 @@ function ContactForm() {
 
   setError("");
   setStatus("sending");
-
+console.log("USE_NODEMAILER:", import.meta.env.VITE_USE_NODEMAILER);
+console.log("API_URL:", import.meta.env.VITE_API_URL);
+console.log("API_URL_RESEND:", import.meta.env.VITE_API_URL_RESEND);
+console.log("CONTACT_ENDPOINT:", CONTACT_ENDPOINT);
   try {
     const response = await fetch(CONTACT_ENDPOINT, {
       method: "POST",
