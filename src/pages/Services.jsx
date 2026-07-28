@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
 import { HiBadgeCheck } from "react-icons/hi";
 import {
   FaArrowRight,
@@ -38,10 +37,31 @@ import {
   FaDrupal,
   FaCss3Alt,
   FaAngular,
+  FaChevronDown
 } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+
 /* ---------- count-up used in the stats row (same pattern as About.jsx) ---------- */
 
+const salesforceFaqs = [
+  {
+    q: "What Salesforce services do you provide?",
+    a: "We provide Salesforce consulting, implementation, customization, Experience Cloud, Service Cloud, Sales Cloud, integrations, Lightning development and ongoing managed support.",
+  },
+  {
+    q: "Do you provide Salesforce support after implementation?",
+    a: "Yes. We provide continuous Salesforce support, enhancements, optimization, user training and managed services.",
+  },
+  {
+    q: "Can you integrate Salesforce with existing systems?",
+    a: "Yes. We integrate Salesforce with ERP systems, websites, third-party applications and REST APIs.",
+  },
+  {
+    q: "Do you build Experience Cloud portals?",
+    a: "Yes. We design and develop secure customer, partner and employee Experience Cloud portals tailored to your business.",
+  },
+];
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 36 },
@@ -154,7 +174,8 @@ const certificates = Object.values(certificateImages).map((img) => ({
 import { Helmet } from "react-helmet-async";
 function Services() {
   const [certSwiper, setCertSwiper] = useState(null);
-
+const [faqOpen, setFaqOpen] = useState(false);
+const [openFaq, setOpenFaq] = useState(0);
   return (
     <div className="ca-services-blue">
        <Helmet>
@@ -209,6 +230,28 @@ function Services() {
     name="twitter:card"
     content="summary_large_image"
   />
+    <script type="application/ld+json">
+{`
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"Home",
+      "item":"https://cloudage-website.pages.dev/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"Services",
+      "item":"https://cloudage-website.pages.dev/services"
+    }
+  ]
+}
+`}
+</script>
 
 </Helmet>
       {/* ================= HERO ================= */}
@@ -436,6 +479,91 @@ function Services() {
 
     </div>
 
+</section>
+
+{/* ================= FAQ (Salesforce only, collapsed by default) ================= */}
+<section className="faq-toggle-section">
+  <div className="container">
+    <motion.button
+      type="button"
+      className={`faq-toggle-btn${faqOpen ? " open" : ""}`}
+      onClick={() => setFaqOpen((o) => !o)}
+      aria-expanded={faqOpen}
+      {...fadeUp()}
+    >
+      <span>{faqOpen ? "Hide FAQs" : "Got Questions About Salesforce? View FAQs"}</span>
+      <motion.span
+        className="faq-toggle-icon"
+        animate={{ rotate: faqOpen ? 180 : 0 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
+        <FaChevronDown />
+      </motion.span>
+    </motion.button>
+
+    <AnimatePresence initial={false}>
+      {faqOpen && (
+        <motion.div
+          className="faq-panel"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+        >
+          <div className="section-title faq-panel-title">
+            <span className="pill-tag">FAQ</span>
+            <h2>Frequently Asked Questions</h2>
+            <p>
+              Answers to some of the most common questions about our
+              Salesforce services.
+            </p>
+          </div>
+
+          <div className="faq-list">
+            {salesforceFaqs.map((f, i) => {
+              const isOpen = openFaq === i;
+              return (
+                <div
+                  className={`faq-item${isOpen ? " open" : ""}`}
+                  key={f.q}
+                >
+                  <button
+                    type="button"
+                    className="faq-question"
+                    onClick={() => setOpenFaq(isOpen ? -1 : i)}
+                    aria-expanded={isOpen}
+                  >
+                    <h3>{f.q}</h3>
+                    <motion.span
+                      className="faq-icon"
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    >
+                      <FaChevronDown />
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        className="faq-answer"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: "easeOut" }}
+                      >
+                        <p>{f.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </div>
 </section>
 
       {/* ================= WEB APP ================= */}

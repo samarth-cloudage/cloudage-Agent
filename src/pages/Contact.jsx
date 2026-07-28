@@ -161,9 +161,13 @@ function ContactForm() {
             onChange={handleChange}
           >
             <option>Salesforce Consulting</option>
-            <option>Implementation</option>
+            <option>Salesforce Implementation</option>
             <option>Support Services</option>
-            <option>Integration</option>
+            <option>Salesforce Integration</option>
+            <option>Salesforce Customization</option>
+            <option>IT Consulting</option>
+            <option>Web Development</option>
+            <option>Mobile App Development</option>
             <option>Something Else</option>
           </select>
         </div>
@@ -274,6 +278,28 @@ function Contact() {
     content="summary_large_image"
   />
 
+        <script type="application/ld+json">
+{`
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"Home",
+      "item":"https://cloudage-website.pages.dev/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"Contact",
+      "item":"https://cloudage-website.pages.dev/contact"
+    }
+  ]
+}
+`}
+</script>
 </Helmet>
       {/* ================= HERO ================= */}
 <section className="contact-hero">
