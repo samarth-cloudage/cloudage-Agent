@@ -482,7 +482,7 @@
 .ca-services-blue .faq-toggle-section {
   position: relative;
   background: #f8fbff;
-  padding: 0px 0 40px;
+  padding: 0px 0 20px;
 }
 
 .ca-services-blue .faq-toggle-btn {
@@ -490,7 +490,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin: 0 auto;
+  margin: 15px auto 0px;
   padding: 16px 30px;
   border-radius: 999px;
   border: 1.5px solid rgba(37, 99, 235, 0.2);
@@ -532,7 +532,32 @@
 }
 
 .ca-services-blue .faq-panel-title {
-  margin-top: 0px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+.faq-toggle-section{
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-toggle-section::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(37,99,235,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,.06) 1px, transparent 1px);
+
+    background-size: 60px 60px;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+.faq-toggle-section > *{
+    position: relative;
+    z-index: 1;
 }
 
 .ca-services-blue .faq-list {
@@ -754,7 +779,7 @@
   position: relative;
   isolation: isolate;
   padding: 0px 0 60px;
-  background: #070b18;
+  background:#0a0f1e;
   overflow: hidden;
 }
 
@@ -904,7 +929,7 @@
 ===================================== */
 
 .certificate-section{
-    padding:0px 0 40px;
+    padding:0px 0 0px;
     background:#f8fbff;
     position:relative;
     overflow:hidden;
@@ -1330,6 +1355,10 @@
   margin-bottom: 30px;
   margin-top: 40px;
 }
+
+.ca-services-blue .pill-tag.faq-pill{
+    margin-top:20px !important;
+}
  .ca-services-blue .section-title h2 {
     font-size: 30px;
     margin-bottom: 30px;
@@ -1412,7 +1441,10 @@
   margin-top: -60px;
 }
 
-
+.ca-services-blue .pill-tag.faq-pill{
+    margin-top:40px !important;
+    margin-bottom:20px !important;
+}
 }
 
 @media (prefers-reduced-motion: reduce) {

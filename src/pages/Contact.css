@@ -691,12 +691,8 @@ font-size:17px;
 
     isolation:isolate;
 
-    background:linear-gradient(
-        135deg,
-        #0b1330 0%,
-        #142252 60%,
-        #4f46e5 100%
-    );
+    background:#0a0f1e;
+
 
     padding:40px 0 40px;
 
@@ -740,33 +736,7 @@ font-size:17px;
 
 /* BIG CENTER GLOW */
 
-.global-reach::after{
-    content:"";
-    position:absolute;
 
-    width:900px;
-    height:900px;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(59,130,246,.28) 0%,
-            rgba(99,102,241,.20) 40%,
-            rgba(168,85,247,.18) 60%,
-            transparent 78%
-        );
-
-    filter:blur(70px);
-
-    z-index:0;
-}
 /* FLOATING LIGHTS */
 
 .global-orb{
@@ -817,7 +787,7 @@ font-size:17px;
 
     max-width:760px;
 
-    margin:0 auto 40px;
+    margin:0 auto 20px;
 
 }
 
@@ -1064,12 +1034,7 @@ flex-wrap:wrap;
     overflow:hidden;
     isolation:isolate;
 
-    background:linear-gradient(
-        135deg,
-        #0b1330 0%,
-        #142252 55%,
-        #4f46e5 100%
-    );
+    background:#0a0f1e;
 
     padding:40px 0 45px;
 }

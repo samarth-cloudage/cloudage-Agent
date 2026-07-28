@@ -539,10 +539,37 @@
   position: relative;
   z-index: 1;
   padding: 40px 0 60px;
-  background: linear-gradient(135deg, var(--deep) 0%, #142252 60%, var(--indigo) 100%);
+  background:#0a0f1e;
   overflow: hidden;
 }
+.marquee-section::before{
+    content:"";
+    position:absolute;
+    width:340px;
+    height:340px;
+    border-radius:50%;
+    background:#2563eb;
+    filter:blur(100px);
 
+    left:-120px;
+    top:25%;
+
+    opacity:.25;
+}
+.marquee-section::after{
+    content:"";
+    position:absolute;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    background:#7c3aed;
+    filter:blur(100px);
+
+    right:-120px;
+    bottom:10%;
+
+    opacity:.22;
+}
 .marquee-row {
   overflow: hidden;
   margin-bottom: 18px;

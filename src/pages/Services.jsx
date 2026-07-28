@@ -511,7 +511,7 @@ const [openFaq, setOpenFaq] = useState(0);
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
           <div className="section-title faq-panel-title">
-            <span className="pill-tag">FAQ</span>
+            <span className="pill-tag faq-pill">FAQ</span>
             <h2>Frequently Asked Questions</h2>
             <p>
               Answers to some of the most common questions about our
