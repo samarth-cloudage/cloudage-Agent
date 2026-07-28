@@ -407,10 +407,12 @@
 ========================================== */
 
 @media (min-width:769px) and (max-width:1024px){
-
+.hero{
+    margin: -20px 0 -20px;
+}
 .hero-wrap .hero{
     min-height:40vh;
-    padding:30px 30px 30px;   /* reduced top & bottom */
+    padding:0px 0px 0px;   /* reduced top & bottom */
 }
 
 .hero-wrap .hero-inner{
