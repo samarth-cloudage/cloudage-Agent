@@ -26,13 +26,14 @@ const COMPANY_PHONE = "+91 92651 26818";
 
 //const CONTACT_ENDPOINT = import.meta.env.VITE_API_URL_RESEND; // resend
 
-const USE_NODEMAILER =
-  import.meta.env.VITE_USE_NODEMAILER === "true";
+// const USE_NODEMAILER =
+//   import.meta.env.VITE_USE_NODEMAILER === "true";
+const CONTACT_ENDPOINT =
+  import.meta.env.VITE_CONTACT_ENDPOINT || "/assets/php/mail.php";
 
-
-const CONTACT_ENDPOINT = USE_NODEMAILER
-  ? import.meta.env.VITE_API_URL
-  : import.meta.env.VITE_API_URL_RESEND;
+// const CONTACT_ENDPOINT = USE_NODEMAILER
+//   ? import.meta.env.VITE_API_URL
+//   : import.meta.env.VITE_API_URL_RESEND;
 
 // const USE_NODEMAILER = JSON.parse(import.meta.env.VITE_USE_NODEMAILER);
 
@@ -74,8 +75,6 @@ function ContactForm() {
   const handleSubmit = async (e) => {
   e.preventDefault();
 
-
-
   const validationError = validate();
 
   if (validationError) {
@@ -88,19 +87,26 @@ function ContactForm() {
   setStatus("sending");
 
   try {
+    const formData = new FormData();
+
+    formData.append("first_name", form.name);
+    formData.append("email_address", form.email);
+    formData.append("phone", form.phone);
+    formData.append("contact_subject", form.interest);
+    formData.append("message", form.message);
+
+    // const response = await fetch("/assets/php/mail.php", {
+    //   method: "POST",
+    //   body: formData,
+    // });
 
     const response = await fetch(CONTACT_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
+  method: "POST",
+  body: formData,
+});
 
-    const data = await response.json();
-
-    if (!response.ok || !data.success) {
-      throw new Error(data.message || "Failed");
+    if (!response.ok) {
+      throw new Error("Failed");
     }
 
     setStatus("success");
@@ -115,13 +121,12 @@ function ContactForm() {
 
   } catch (err) {
     console.error(err);
-
     setStatus("error");
     setError(
-      "Unable to send your message. Please try again or email us directly."
+      "Unable to send your message. Please try again."
     );
   }
-};;
+};
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>

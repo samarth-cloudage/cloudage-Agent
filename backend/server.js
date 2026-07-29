@@ -12,11 +12,9 @@ app.use(express.json());
 
 // Create transporter
 const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
+  sendmail: true,
+  newline: "unix",
+  path: "/usr/sbin/sendmail",
 });
 
 // Home Route
@@ -51,45 +49,45 @@ app.post("/api/contact", async (req, res) => {
     const { name, email, phone, interest, message } = req.body;
 
     await transporter.sendMail({
-      from: `"CloudAge Website" <${process.env.EMAIL_USER}>`,
+      from: `${name} <${email}>`,
       to: process.env.EMAIL_USER,
+
+      replyTo: email,
+
       subject: `📩 New Website Inquiry from ${name}`,
+
       html: `
-        <div style="font-family:Arial,sans-serif;padding:20px;">
-          <h2>📩 New Contact Form Submission</h2>
+    <div style="font-family:Arial,sans-serif;padding:20px;">
+      <h2>📩 New Contact Form Submission</h2>
 
-          <table cellpadding="10" cellspacing="0" style="border-collapse:collapse;width:100%;border:1px solid #ddd;">
-            <tr>
-              <td><strong>Name</strong></td>
-              <td>${name}</td>
-            </tr>
+      <table cellpadding="10" cellspacing="0" style="border-collapse:collapse;width:100%;border:1px solid #ddd;">
+        <tr>
+          <td><strong>Name</strong></td>
+          <td>${name}</td>
+        </tr>
 
-            <tr>
-              <td><strong>Email</strong></td>
-              <td>${email}</td>
-            </tr>
+        <tr>
+          <td><strong>Email</strong></td>
+          <td>${email}</td>
+        </tr>
 
-            <tr>
-              <td><strong>Phone</strong></td>
-              <td>${phone || "Not Provided"}</td>
-            </tr>
+        <tr>
+          <td><strong>Phone</strong></td>
+          <td>${phone || "Not Provided"}</td>
+        </tr>
 
-            <tr>
-              <td><strong>Interested In</strong></td>
-              <td>${interest}</td>
-            </tr>
+        <tr>
+          <td><strong>Interested In</strong></td>
+          <td>${interest}</td>
+        </tr>
 
-            <tr>
-              <td><strong>Project Details</strong></td>
-              <td>${message}</td>
-            </tr>
-          </table>
-
-          <br>
-
-          <p>This message was sent from the CloudAge Informatica website.</p>
-        </div>
-      `,
+        <tr>
+          <td><strong>Project Details</strong></td>
+          <td>${message}</td>
+        </tr>
+      </table>
+    </div>
+  `,
     });
 
     res.json({
