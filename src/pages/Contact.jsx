@@ -91,7 +91,7 @@ function ContactForm() {
 
     formData.append("first_name", form.name);
     formData.append("email_address", form.email);
-    formData.append("phone", form.phone);
+  formData.append("phone", form.phone.trim() || "Not Provided");
     formData.append("contact_subject", form.interest);
     formData.append("message", form.message);
 
