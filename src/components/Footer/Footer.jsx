@@ -1,40 +1,28 @@
 import "./Footer.css";
 import CloudAgeLogo from "../../assets/images/CloudAgeLogo.png";
 import { Link } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaInstagram,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
 
 function Footer() {
-  return (
-    <footer className="footer">
+    return (
+        <footer className="footer">
+            {/* top accent line */}
+            <div className="footer-accent-line" />
 
-      {/* top accent line */}
-      <div className="footer-accent-line" />
+            <div className="container footer-container">
+                {/* ── Col 1: Brand ── */}
+                <div className="footer-col footer-brand">
+                    <img src={CloudAgeLogo} alt="CloudAge Informatica Logo" className="footer-logo" />
 
-      <div className="container footer-container">
+                    <p className="footer-tagline">
+                        Solutions That
+                        <br />
+                        Drive Real
+                        <br />
+                        Growth.
+                    </p>
 
-        {/* ── Col 1: Brand ── */}
-        <div className="footer-col footer-brand">
-          <img
-            src={CloudAgeLogo}
-            alt="CloudAge Informatica Logo"
-            className="footer-logo"
-          />
-
-          <p className="footer-tagline">
-            Solutions That<br />
-            Drive Real<br />
-            Growth.
-          </p>
-
-          {/* Social icons — uncomment when ready
+                    {/* Social icons — uncomment when ready
           <div className="social-icons">
             <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook">
               <FaFacebookF />
@@ -47,74 +35,118 @@ function Footer() {
             </a>
           </div>
           */}
-        </div>
+                </div>
 
-        {/* ── Col 2: Quick Links ── */}
-        <div className="footer-col">
-          <h3>Quick Links</h3>
-          <ul className="footer-links">
-            <li><Link to="/"><FaArrowRight /> Home</Link></li>
-            <li><Link to="/about"><FaArrowRight /> About</Link></li>
-            <li><Link to="/services"><FaArrowRight /> Services</Link></li>
-            <li><Link to="/contact"><FaArrowRight /> Contact</Link></li>
-          </ul>
-        </div>
+                {/* ── Col 2: Quick Links ── */}
+                <div className="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul className="footer-links">
+                        <li>
+                            <Link to="/">
+                                <FaArrowRight /> Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/about">
+                                <FaArrowRight /> About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/services">
+                                <FaArrowRight /> Services
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/contact">
+                                <FaArrowRight /> Contact
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
 
-        {/* ── Col 3: Services ── */}
-        <div className="footer-col">
-          <h3>Services</h3>
-          <ul className="footer-links">
-            <li><Link to="/services"><FaArrowRight /> Salesforce Consulting</Link></li>
-            <li><Link to="/services"><FaArrowRight /> Sales Cloud</Link></li>
-            <li><Link to="/services"><FaArrowRight /> Service Cloud</Link></li>
-            <li><Link to="/services"><FaArrowRight /> Experience Cloud</Link></li>
-            <li><Link to="/services"><FaArrowRight /> CRM Automation</Link></li>
-            <li><Link to="/services"><FaArrowRight /> Lightning Migration</Link></li>
-          </ul>
-        </div>
+                {/* ── Col 3: Services ── */}
+                <div className="footer-col">
+                    <h3>Services</h3>
+                    <ul className="footer-links">
+                        <li>
+                            <Link to="/services">
+                                <FaArrowRight /> Salesforce Consulting
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/services">
+                                <FaArrowRight /> Sales Cloud
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/services">
+                                <FaArrowRight /> Service Cloud
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/services">
+                                <FaArrowRight /> Experience Cloud
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/services">
+                                <FaArrowRight /> CRM Automation
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/services">
+                                <FaArrowRight /> Lightning Migration
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
 
-        {/* ── Col 4: Contact ── */}
-        <div className="footer-col">
-          <h3>Get In Touch</h3>
-          <div className="footer-contact-list">
+                {/* ── Col 4: Contact ── */}
+                <div className="footer-col">
+                    <h3>Get In Touch</h3>
+                    <div className="footer-contact-list">
+                        <div className="footer-contact-item">
+                            <span className="fc-icon">
+                                <FaMapMarkerAlt />
+                            </span>
+                            <span className="fc-text">
+                                409 Soham Arcade, Nr Bagban circle,
+                                <br />
+                                Gauravpath road, Surat,
+                                <br />
+                                Gujarat 394510, India
+                            </span>
+                        </div>
 
-            <div className="footer-contact-item">
-              <span className="fc-icon"><FaMapMarkerAlt /></span>
-              <span className="fc-text">
-                409 Soham Arcade, Nr Bagban circle,<br />
-                Gauravpath road, Surat,<br />
-                Gujarat 394510, India
-              </span>
+                        <div className="footer-contact-item">
+                            <span className="fc-icon">
+                                <FaPhoneAlt />
+                            </span>
+                            <a href="tel:+919265126818" className="fc-text fc-link">
+                                +91 92651 26818
+                            </a>
+                        </div>
+
+                        <div className="footer-contact-item">
+                            <span className="fc-icon">
+                                <FaEnvelope />
+                            </span>
+                            <a href="mailto:contact@cloudageinformatica.com" className="fc-text fc-link">
+                                contact@cloudageinformatica.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div className="footer-contact-item">
-              <span className="fc-icon"><FaPhoneAlt /></span>
-              <a href="tel:+919265126818" className="fc-text fc-link">
-                +91 92651 26818
-              </a>
-            </div>
-
-            <div className="footer-contact-item">
-              <span className="fc-icon"><FaEnvelope /></span>
-              <a href="mailto:contact@cloudageinformatica.com" className="fc-text fc-link">
-                contact@cloudageinformatica.com
-              </a>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-      {/* ── bottom bar ── */}
-      <div className="footer-bottom">
-        <span>© 2021 CloudAge Informatica Pvt. Ltd. All Rights Reserved.</span>
-        {/* <span className="footer-bottom-sep" />
+            {/* ── bottom bar ── */}
+            <div className="footer-bottom">
+                <span>© 2021 CloudAge Informatica Pvt. Ltd. All Rights Reserved.</span>
+                {/* <span className="footer-bottom-sep" />
         <span>Surat, Gujarat, India</span> */}
-      </div>
-
-    </footer>
-  );
+            </div>
+        </footer>
+    );
 }
 
 export default Footer;

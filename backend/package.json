@@ -2,10 +2,10 @@
   "name": "cloudage-backend",
   "version": "1.0.0",
   "type": "module",
-  "main": "server.js",
+  "main": "server1.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node server1.js",
+    "dev": "node server1.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

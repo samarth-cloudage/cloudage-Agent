@@ -1,61 +1,60 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-    font-family:"Manrope",sans-serif;
-    background:#ffffff;
-    color:#0f172a;
-    overflow-x:hidden;
-    font-size:16px;
-    line-height:1.6;
-    font-weight:500;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
+body {
+  font-family: "Manrope", sans-serif;
+  background: #ffffff;
+  color: #0f172a;
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
-    transition:.3s;
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
 }
 
-ul{
-    list-style:none;
+ul {
+  list-style: none;
 }
 
-button{
-    font-family:inherit;
-    cursor:pointer;
-    transition:.3s;
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-img{
-    max-width:100%;
-    display:block;
-    object-fit:cover;
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-.container{
-    width:min(1180px,90%);
-    margin:0 auto;
+.container {
+  width: min(1180px, 90%);
+  margin: 0 auto;
 }
 
-section{
-    padding:90px 0;
+section {
+  padding: 90px 0;
 }
-body{
 
-    overflow-x:hidden;
+body {
+  overflow-x: hidden;
 
-    position:relative;
-
+  position: relative;
 }
