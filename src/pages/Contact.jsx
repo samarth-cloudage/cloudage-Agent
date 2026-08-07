@@ -25,7 +25,10 @@ const COMPANY_PHONE = "+91 92651 26818";
 // const CONTACT_ENDPOINT =
 //   import.meta.env.VITE_CONTACT_ENDPOINT || "/assets/php/mail.php"; //php WORKING BACKEND OLD SITE
 //
-const CONTACT_ENDPOINT = "http://localhost:5001/api/contact";
+//const CONTACT_ENDPOINT = "http://localhost:5001/api/contact";
+//const CONTACT_ENDPOINT = "https://api.cloudageinformatica.com/api/contact";
+ const CONTACT_ENDPOINT =
+   `${import.meta.env.VITE_API_URL}/api/contact`;
 
 // const CONTACT_ENDPOINT = USE_NODEMAILER
 //   ? import.meta.env.VITE_API_URL

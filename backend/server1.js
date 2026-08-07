@@ -5,15 +5,30 @@ import nodemailer from "nodemailer";
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-app.use(cors());
+app.use(cors({
+	origin: [
+		"http://localhost:5173",
+		"https://cloudageinformatica.com",
+		"https://www.cloudageinformatica.com"
+	],
+	methods: ["GET", "POST", "OPTIONS"],
+	allowedHeaders: ["Content-Type"]
+}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// const transporter = nodemailer.createTransport({
+// 	host: "mail.cloudageinformatica.com",
+// 	port: 465,
+// 	secure: true,
+// });
+
 const transporter = nodemailer.createTransport({
-	host: "mail.cloudageinformatica.com",
-	port: 465,
-	secure: true,
+	sendmail: true,
+	newline: "unix",
+	path: "/usr/sbin/sendmail"
 });
+
 
 app.get("/", (req, res) => {
 	res.send("Backend Running 🚀");
@@ -51,6 +66,7 @@ ${message}
 		res.status(500).json({
 			success: false,
 			message: err.message,
+			trace: err.stack
 		});
 	}
 });
