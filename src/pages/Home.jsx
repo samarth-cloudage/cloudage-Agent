@@ -15,7 +15,7 @@ function Home() {
                     content="CloudAge Informatica helps businesses implement, customize and optimize Salesforce CRM with certified consultants."
                 />
 
-                <link rel="canonical" href="https://cloudage-website.pages.dev/" />
+                <link rel="canonical" href="https://www.cloudageinformatica.com/" />
 
                 <meta name="robots" content="index,follow" />
 
@@ -28,9 +28,9 @@ function Home() {
                     content="CloudAge Informatica helps businesses implement, customize and optimize Salesforce CRM with certified consultants."
                 />
 
-                <meta property="og:url" content="https://cloudage-website.pages.dev/" />
+                <meta property="og:url" content="https://www.cloudageinformatica.com/" />
 
-                <meta property="og:image" content="https://cloudage-website.pages.dev/CloudAgeLogo.png" />
+                <meta property="og:image" content="https://www.cloudageinformatica.com/CloudAgeLogo.png" />
 
                 <meta property="og:image:alt" content="CloudAge Informatica Salesforce Consulting" />
 
@@ -44,9 +44,9 @@ function Home() {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "CloudAge Informatica",
-  "url": "https://cloudage-website.pages.dev",
-  "logo": "https://cloudage-website.pages.dev/CloudAgeLogo.png",
-  "image": "https://cloudage-website.pages.dev/CloudAgeLogo.png",
+  "url": "https://www.cloudageinformatica.com",
+  "logo": "https://www.cloudageinformatica.com/CloudAgeLogo.png",
+  "image": "https://www.cloudageinformatica.com/CloudAgeLogo.png",
   "telephone": "+91 92651 26818",
   "email": "contact@cloudageinformatica.com",
   "description": "CloudAge Informatica provides Salesforce consulting, CRM implementation, Experience Cloud, Service Cloud, custom Salesforce development and integration services.",

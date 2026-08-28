@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
 
 function Footer() {
+
+    const currentYear = new Date().getFullYear();
     return (
         <footer className="footer">
             {/* top accent line */}
@@ -110,7 +112,7 @@ function Footer() {
                                 <FaMapMarkerAlt />
                             </span>
                             <span className="fc-text">
-                                409 Soham Arcade, Nr Bagban circle,
+                                409 Soham Arcade, Near Bagban Circle,
                                 <br />
                                 Gauravpath road, Surat,
                                 <br />
@@ -141,7 +143,8 @@ function Footer() {
 
             {/* ── bottom bar ── */}
             <div className="footer-bottom">
-                <span>© 2021 CloudAge Informatica Pvt. Ltd. All Rights Reserved.</span>
+               <span>
+  © 2021–{currentYear} CloudAge Informatica Pvt. Ltd. All rights reserved. </span>
                 {/* <span className="footer-bottom-sep" />
         <span>Surat, Gujarat, India</span> */}
             </div>

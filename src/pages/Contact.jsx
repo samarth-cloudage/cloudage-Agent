@@ -247,7 +247,7 @@ function Contact() {
                     content="Get in touch with CloudAge Informatica for Salesforce consulting, CRM implementation and digital transformation services."
                 />
 
-                <link rel="canonical" href="https://cloudage-website.pages.dev/contact" />
+                <link rel="canonical" href="https://www.cloudageinformatica.com/contact" />
 
                 <meta name="robots" content="index,follow" />
 
@@ -260,9 +260,9 @@ function Contact() {
                     content="Get in touch with CloudAge Informatica for Salesforce consulting, CRM implementation and digital transformation services."
                 />
 
-                <meta property="og:url" content="https://cloudage-website.pages.dev/contact" />
+                <meta property="og:url" content="https://www.cloudageinformatica.com/contact" />
 
-                <meta property="og:image" content="https://cloudage-website.pages.dev/CloudAgeLogo.png" />
+                <meta property="og:image" content="https://www.cloudageinformatica.com/CloudAgeLogo.png" />
 
                 <meta property="og:image:alt" content="CloudAge Informatica Salesforce Consulting" />
 
@@ -280,13 +280,13 @@ function Contact() {
       "@type":"ListItem",
       "position":1,
       "name":"Home",
-      "item":"https://cloudage-website.pages.dev/"
+      "item":"https://www.cloudageinformatica.com/"
     },
     {
       "@type":"ListItem",
       "position":2,
       "name":"Contact",
-      "item":"https://cloudage-website.pages.dev/contact"
+      "item":"https://www.cloudageinformatica.com/contact"
     }
   ]
 }
@@ -344,9 +344,9 @@ function Contact() {
                         </div>
                         <h3>Visit Us</h3>
                         <p>
-                            Cloud Age Informatica Pvt. Ltd.
+                            CloudAge Informatica Pvt. Ltd.
                             <br />
-                            409 Soham Arcade, Nr Bagban circle,
+                            409 Soham Arcade, Near Bagban Circle,
                             <br />
                             Gauravpath road, Surat, Gujarat 394510
                         </p>

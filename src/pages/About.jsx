@@ -81,7 +81,7 @@ function About() {
                     content="Learn about CloudAge Informatica, our certified Salesforce experts, experience and approach to CRM transformation."
                 />
 
-                <link rel="canonical" href="https://cloudage-website.pages.dev/about" />
+                <link rel="canonical" href="www.cloudageinformatica.com/about" />
 
                 <meta name="robots" content="index,follow" />
 
@@ -94,9 +94,9 @@ function About() {
                     content="Learn about CloudAge Informatica, our certified Salesforce experts, experience and approach to CRM transformation."
                 />
 
-                <meta property="og:url" content="https://cloudage-website.pages.dev/about" />
+                <meta property="og:url" content="https://www.cloudageinformatica.com/about" />
 
-                <meta property="og:image" content="https://cloudage-website.pages.dev/CloudAgeLogo.png" />
+                <meta property="og:image" content="https://www.cloudageinformatica.com/CloudAgeLogo.png" />
 
                 <meta property="og:image:alt" content="CloudAge Informatica Salesforce Consulting" />
 
@@ -114,13 +114,13 @@ function About() {
       "@type":"ListItem",
       "position":1,
       "name":"Home",
-      "item":"https://cloudage-website.pages.dev/"
+      "item":"https://www.cloudageinformatica.com/"
     },
     {
       "@type":"ListItem",
       "position":2,
       "name":"About",
-      "item":"https://cloudage-website.pages.dev/about"
+      "item":"https://www.cloudageinformatica.com/about"
     }
   ]
 }

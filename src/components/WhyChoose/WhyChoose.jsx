@@ -10,7 +10,7 @@ import {
     FaArrowRight,
 } from "react-icons/fa";
 import CountNumber from "../CountNumber";
-
+import SalesforcePartnerLogo from "../../assets/images/SF-partner.png";
 const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 44 },
     whileInView: { opacity: 1, y: 0 },
@@ -47,7 +47,7 @@ const features = [
     {
         icon: <FaHandshake />,
         title: "Beyond Just Development",
-        text: "We build long-term partnerships with continuoussupport — not one-and-done projects.",
+        text: "We build long-term partnerships with continuous support — not one-and-done projects.",
     },
 ];
 
@@ -55,6 +55,8 @@ const clouds = [
     "Sales Cloud",
     "Service Cloud",
     "Experience Cloud",
+    "Agentforce",
+    "Data Cloud",
     "Marketing Cloud",
     "Lightning Web Components",
     "Apex Development",
@@ -91,19 +93,33 @@ function WhyChoose() {
                 <div className="container">
                     <div className="stats-inner">
                         {[
-                            { val: 10, suf: "+", label: "Satisfied Clients" },
-                            { val: 50, suf: "+", label: "Projects Delivered" },
-                            { val: 3, suf: "+", label: "Upcoming Projects" },
-                        ].map((s, i) => (
+    { val: 15, suf: "+", label: "Years of Industry Experience" },
+    { val: 50, suf: "+", label: "Projects Delivered" },
+    {
+        image: SalesforcePartnerLogo,
+        label: "Salesforce Partner",
+    },
+].map((s, i) => (
                             <motion.div
                                 className="stat-block"
                                 key={s.label}
                                 {...fadeUp(i * 0.1)}
                             >
-                                <h2>
-                                    <CountNumber end={s.val} suffix={s.suf} />
-                                </h2>
-                                <p>{s.label}</p>
+                               {s.image ? (
+    <div className="partner-stat-wrapper">
+        <img
+            src={s.image}
+            alt="Salesforce Partner"
+            className="partner-stat-logo"
+        />
+    </div>
+) : (
+    <h2>
+        <CountNumber end={s.val} suffix={s.suf} />
+    </h2>
+)}
+
+<p>{s.label}</p>
                             </motion.div>
                         ))}
                     </div>

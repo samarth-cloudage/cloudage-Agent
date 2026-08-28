@@ -40,6 +40,7 @@ import {
     FaChevronDown,
 } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
+
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
 /* ---------- count-up used in the stats row (same pattern as About.jsx) ---------- */
@@ -115,7 +116,7 @@ const salesforceServices = [
     {
         icon: <FaCode />,
         title: "Salesforce Development",
-        desc: "End-to-end development — planning, strategizing and installing — customised to your specific company requirements.",
+        desc: "End-to-end development — planning, strategizing and installing — customized to your specific company requirements.",
     },
     {
         icon: <FaSyncAlt />,
@@ -183,7 +184,7 @@ function Services() {
                     content="Explore Salesforce implementation, Experience Cloud, Service Cloud, integrations and custom Salesforce development."
                 />
 
-                <link rel="canonical" href="https://cloudage-website.pages.dev/services" />
+                <link rel="canonical" href="https://www.cloudageinformatica.com/services" />
 
                 <meta name="robots" content="index,follow" />
 
@@ -196,9 +197,9 @@ function Services() {
                     content="Explore Salesforce implementation, Experience Cloud, Service Cloud, integrations and custom Salesforce development."
                 />
 
-                <meta property="og:url" content="https://cloudage-website.pages.dev/services" />
+                <meta property="og:url" content="https://www.cloudageinformatica.com/services" />
 
-                <meta property="og:image" content="https://cloudage-website.pages.dev/CloudAgeLogo.png" />
+                <meta property="og:image" content="https://www.cloudageinformatica.com/CloudAgeLogo.png" />
 
                 <meta property="og:image:alt" content="CloudAge Informatica Salesforce Consulting" />
 
@@ -215,13 +216,13 @@ function Services() {
       "@type":"ListItem",
       "position":1,
       "name":"Home",
-      "item":"https://cloudage-website.pages.dev/"
+      "item":"https://www.cloudageinformatica.com/"
     },
     {
       "@type":"ListItem",
       "position":2,
       "name":"Services",
-      "item":"https://cloudage-website.pages.dev/services"
+      "item":"https://www.cloudageinformatica.com/services"
     }
   ]
 }
@@ -264,7 +265,7 @@ function Services() {
 
                             <div>✓ Custom Development</div>
 
-                            <div>✓ Long Term Support</div>
+                            <div>✓ Long-Term Support</div>
                         </div>
 
                         <div className="heroButtons">
@@ -331,7 +332,7 @@ function Services() {
                             <MdVerified style={{ position: "relative", top: "2px", marginRight: "6px" }} />
                             CERTIFIED &amp; TRUSTED
                         </span>
-                        <h2>Backed By The Credentials That Matters</h2>
+                        <h2>Backed by Credentials That Matter</h2>
                         <p>Real certifications from real programs — the same expertise we put to work on your org, on paper.</p>
                     </motion.div>
 
@@ -529,7 +530,7 @@ function Services() {
                         </div>
                     </motion.div>
 
-                    <motion.div
+                    {/* <motion.div
                         className="cta-card"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -549,7 +550,7 @@ function Services() {
                                 <strong>+91 92651 26818</strong>
                             </span>
                         </a>
-                    </motion.div>
+                    </motion.div> */}
                 </div>
             </section>
         </div>
