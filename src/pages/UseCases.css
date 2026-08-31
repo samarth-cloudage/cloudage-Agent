@@ -7,13 +7,15 @@
     --deep: #0f172a;
     --slate: #64748b;
     --panel: #ffffff;
-    --paper: #f7f9fc;
+    --paper: #f5f7fc;
 
     --font-display: "Sora", "Segoe UI", sans-serif;
     --font-body: "Inter", "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
 
     font-family: var(--font-body);
     background: var(--paper);
+    overflow: hidden;
 }
 
 .usecases-v2 .container {
@@ -24,7 +26,7 @@
 
 .usecases-v2 .section-pill {
     display: inline-block;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-mono);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -33,72 +35,93 @@
     border: 1px solid rgba(37, 99, 235, 0.2);
     border-radius: 999px;
     padding: 6px 16px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 /* ── HERO ── */
 .uc-hero {
-    background: linear-gradient(135deg, var(--deep) 0%, #1e2d5a 60%, var(--indigo) 100%);
-    padding: 90px 0 70px;
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    #020b24 0%,
+    #04133f 45%,
+    #0a1d56 100%
+  );
 }
 
-.uc-hero::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: var(--sky);
-    border-radius: 50%;
-    filter: blur(140px);
-    opacity: 0.12;
-    right: -150px;
-    top: -200px;
+
+
+.uc-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+
+  background-size: 62px 62px;
+  pointer-events: none;
 }
 
 .uc-hero-inner {
     position: relative;
     z-index: 1;
-    max-width: 720px;
+    max-width: 740px;
 }
 
 .uc-hero .section-pill {
     background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.3);
+    border-color: rgba(56, 189, 248, 0.35);
     color: var(--sky);
 }
 
 .uc-hero h1 {
     font-family: var(--font-display);
-    font-size: 46px;
+    font-size: 52px;
     font-weight: 800;
     color: #fff;
     line-height: 1.15;
-    margin: 0 0 18px;
+    margin: 0 0 20px;
+    letter-spacing: -0.5px;
 }
 
 .uc-hero p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.72);
+    font-size: 18px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
     margin: 0;
 }
 
 /* ── CASE CARDS ── */
 .uc-cases-section {
-    padding: 80px 0;
+    padding: 90px 0 30px;
+    position: relative;
 }
 
 .uc-case-card {
     display: grid;
     grid-template-columns: 300px 1fr;
-    gap: 48px;
+    gap: 0;
     background: var(--panel);
-    border-radius: 24px;
-    padding: 44px;
-    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.06);
-    margin-bottom: 40px;
+    border-radius: 28px;
+    box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.04),
+        0 24px 48px -12px rgba(15, 23, 42, 0.12);
+    margin-bottom: 44px;
+    overflow: hidden;
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.uc-case-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.04),
+        0 36px 64px -12px rgba(15, 23, 42, 0.18);
 }
 
 .uc-case-card:last-child {
@@ -117,78 +140,124 @@
     order: 1;
 }
 
+/* alternating accent per card index */
+.uc-case-card:nth-child(1) .uc-case-visual { background: linear-gradient(160deg, #0f172a 0%, #1d4ed8 100%); }
+.uc-case-card:nth-child(2) .uc-case-visual { background: linear-gradient(160deg, #0f172a 0%, #4f46e5 100%); }
+.uc-case-card:nth-child(3) .uc-case-visual { background: linear-gradient(160deg, #0f172a 0%, #0891b2 100%); }
+
 .uc-case-visual {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-    border-right: 1px solid rgba(15, 23, 42, 0.08);
-    padding-right: 32px;
+    justify-content: center;
+    gap: 12px;
+    padding: 44px 36px;
+    position: relative;
+    overflow: hidden;
 }
 
-.uc-case-card.reverse .uc-case-visual {
-    border-right: none;
-    border-left: 1px solid rgba(15, 23, 42, 0.08);
-    padding-right: 0;
-    padding-left: 32px;
+.uc-case-visual::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    top: -80px;
+    right: -80px;
+}
+
+.uc-case-visual::after {
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    bottom: -50px;
+    left: -50px;
 }
 
 .uc-case-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, var(--brand), var(--indigo));
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    margin-bottom: 6px;
+    font-size: 24px;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
 }
 
 .uc-case-tag {
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--brand);
-    background: rgba(37, 99, 235, 0.08);
-    padding: 5px 12px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 14px;
     border-radius: 999px;
+    position: relative;
+    z-index: 1;
 }
 
 .uc-case-client {
-    font-size: 14px;
-    color: var(--slate);
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.75);
     font-weight: 500;
-    margin-top: 4px;
+    margin-top: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+.uc-case-body {
+    padding: 44px 48px;
 }
 
 .uc-case-body h3 {
     font-family: var(--font-display);
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 800;
     color: var(--deep);
-    margin: 0 0 22px;
-    line-height: 1.3;
+    margin: 0 0 24px;
+    line-height: 1.35;
+    letter-spacing: -0.2px;
 }
 
 .uc-case-block {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .uc-case-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--brand-dark);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.uc-case-label::before {
+    content: "";
+    width: 14px;
+    height: 2px;
+    background: var(--brand);
+    border-radius: 2px;
 }
 
 .uc-case-block p {
     font-size: 15px;
-    line-height: 1.65;
+    line-height: 1.7;
     color: var(--slate);
     margin: 0;
 }
@@ -199,61 +268,127 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 11px;
 }
 
 .uc-case-list li {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 11px;
     font-size: 14.5px;
     color: var(--deep);
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
 .uc-case-list li svg {
-    color: var(--brand);
-    margin-top: 3px;
+    color: #fff;
+    background: var(--brand);
+    border-radius: 50%;
+    padding: 2px;
+    width: 16px;
+    height: 16px;
+    margin-top: 1px;
     flex-shrink: 0;
+}
+
+.uc-case-stats-wrapper {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px dashed rgba(15, 23, 42, 0.12);
 }
 
 .uc-case-stats {
     display: flex;
-    gap: 32px;
-    margin-top: 26px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    gap: 0;
+    margin-top: 18px;
+}
+
+.uc-stat {
+    flex: 1;
+    padding-right: 20px;
 }
 
 .uc-stat h4 {
     font-family: var(--font-display);
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 800;
-    color: var(--brand-dark);
+    background: linear-gradient(135deg, var(--brand-dark), var(--indigo));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     margin: 0 0 4px;
+    line-height: 1;
 }
 
 .uc-stat p {
     font-size: 12.5px;
     color: var(--slate);
     margin: 0;
+    font-weight: 500;
 }
 
 /* ── CTA ── */
 .uc-cta-section {
-    padding: 0 0 90px;
+    padding: 60px 0 100px;
 }
 
 .uc-cta-box {
-    background: linear-gradient(135deg, var(--brand) 0%, var(--indigo) 100%);
-    border-radius: 24px;
-    padding: 56px;
+    background: linear-gradient(120deg, var(--brand) 0%, var(--indigo) 55%, #6d28d9 100%);
+    border-radius: 28px;
+    padding: 64px;
     position: relative;
     overflow: hidden;
 }
 
+.uc-cta-box::before {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    right: -120px;
+    top: -140px;
+}
+.uc-cta-section {
+    padding: 60px 0 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.uc-cta-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+
+    background-size: 60px 60px;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+.uc-cta-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.uc-cta-box::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    right: 60px;
+    bottom: -140px;
+}
+
 .uc-cta-content {
-    max-width: 560px;
+    max-width: 580px;
     position: relative;
     z-index: 1;
 }
@@ -264,24 +399,26 @@
     font-weight: 700;
     letter-spacing: 1.2px;
     color: #fff;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 7px 16px;
     border-radius: 999px;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
 .uc-cta-content h2 {
     font-family: var(--font-display);
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 800;
     color: #fff;
-    margin: 0 0 12px;
+    margin: 0 0 14px;
+    letter-spacing: -0.3px;
 }
 
 .uc-cta-content p {
-    font-size: 15.5px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.85);
-    margin: 0 0 26px;
+    margin: 0 0 28px;
     line-height: 1.6;
 }
 
@@ -293,14 +430,42 @@
     color: var(--brand-dark);
     font-weight: 700;
     font-size: 15px;
-    padding: 14px 26px;
+    padding: 15px 28px;
     border-radius: 999px;
     text-decoration: none;
-    transition: transform 0.25s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
 }
 
 .uc-cta-btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+
+.uc-cases-section {
+    padding: 90px 0 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.uc-cases-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+
+    background-size: 60px 60px;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+.uc-cases-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 /* ── RESPONSIVE ── */
@@ -310,20 +475,38 @@
         grid-template-columns: 1fr;
     }
 
-    .uc-case-visual,
-    .uc-case-card.reverse .uc-case-visual {
-        border: none;
-        padding: 0;
+    .uc-case-visual {
         flex-direction: row;
         align-items: center;
+        padding: 28px 32px;
+    }
+
+    .uc-case-body {
+        padding: 32px 28px;
     }
 
     .uc-case-stats {
         flex-wrap: wrap;
-        gap: 20px 32px;
+        gap: 20px 0;
+    }
+
+    .uc-stat {
+        flex: 1 1 45%;
+    }
+
+    .uc-hero {
+        padding: 80px 0 60px;
     }
 
     .uc-hero h1 {
         font-size: 32px;
+    }
+
+    .uc-cta-box {
+        padding: 40px 28px;
+    }
+
+    .uc-cta-content h2 {
+        font-size: 26px;
     }
 }

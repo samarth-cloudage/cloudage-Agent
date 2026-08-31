@@ -11,8 +11,10 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import UseCases from "./pages/UseCases";
+import Testcase from "./pages/Testcase";
 
 import "./App.css";
+
 
 function App() {
   useEffect(() => {
@@ -34,9 +36,11 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
            <Route path="/UseCases" element={<UseCases />} />
+                  <Route path="/Testcase" element={<Testcase />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+
 
       <Footer />
     </BrowserRouter>

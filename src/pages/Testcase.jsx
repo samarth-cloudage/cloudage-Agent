@@ -1,4 +1,4 @@
-import "./UseCases.css";
+import "./Testcase.css";
 import { motion } from "framer-motion";
 import {
     FaUniversity,
@@ -73,16 +73,15 @@ const cases = [
             { val: "70%", label: "Team Productivity Boost" },
         ],
     },
-    
 ];
 
-function UseCases() {
+function Testcase() {
     return (
-        <div className="usecases-v2">
+        <div className="testcase-v2">
             {/* ── HERO ── */}
-            <section className="uc-hero">
+            <section className="tc-hero">
                 <div className="container">
-                    <motion.div className="uc-hero-inner" {...fadeUp(0)}>
+                    <motion.div className="tc-hero-inner" {...fadeUp(0)}>
                         <div className="section-pill">OUR WORK</div>
                         <h1>Real Challenges. Real Salesforce Solutions.</h1>
                         <p>
@@ -93,37 +92,33 @@ function UseCases() {
                     </motion.div>
                 </div>
             </section>
-              
+
             {/* ── CASE STUDIES ── */}
-            <section className="uc-cases-section">
-                
+            <section className="tc-cases-section">
                 <div className="container">
-                    
                     {cases.map((item, i) => (
                         <motion.div
                             key={item.title}
-                            className={`uc-case-card ${i % 2 === 1 ? "reverse" : ""}`}
+                            className={`tc-case-card ${i % 2 === 1 ? "reverse" : ""}`}
                             {...fadeUp(i * 0.1)}
                         >
-                            <div className="uc-case-visual">
-                                <div className="uc-case-icon">{item.icon}</div>
-                                <div className="uc-case-tag">{item.tag}</div>
-                                <div className="uc-case-client">{item.client}</div>
+                            <div className="tc-case-visual">
+                                <div className="tc-case-icon">{item.icon}</div>
+                                <div className="tc-case-tag">{item.tag}</div>
+                                <div className="tc-case-client">{item.client}</div>
                             </div>
 
-                            <div className="uc-case-body">
-                                
+                            <div className="tc-case-body">
                                 <h3>{item.title}</h3>
 
-                                <div className="uc-case-block">
-                                    <span className="uc-case-label">The Challenge</span>
+                                <div className="tc-case-block">
+                                    <span className="tc-case-label">The Challenge</span>
                                     <p>{item.challenge}</p>
                                 </div>
-                            
-                                <div className="uc-case-block">
-                                    
-                                    <span className="uc-case-label">What We Did</span>
-                                    <ul className="uc-case-list">
+
+                                <div className="tc-case-block">
+                                    <span className="tc-case-label">What We Did</span>
+                                    <ul className="tc-case-list">
                                         {item.solution.map((line) => (
                                             <li key={line}>
                                                 <FaCheckCircle /> {line}
@@ -132,18 +127,14 @@ function UseCases() {
                                     </ul>
                                 </div>
 
-                             <div className="uc-case-stats-wrapper">
-  <span className="uc-case-label">Results</span>
-
-  <div className="uc-case-stats">
-    {item.stats.map((s) => (
-      <div className="uc-stat" key={s.label}>
-        <h4>{s.val}</h4>
-        <p>{s.label}</p>
-      </div>
-    ))}
-  </div>
-</div>
+                                <div className="tc-case-stats">
+                                    {item.stats.map((s) => (
+                                        <div className="tc-stat" key={s.label}>
+                                            <h4>{s.val}</h4>
+                                            <p>{s.label}</p>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </motion.div>
                     ))}
@@ -151,23 +142,23 @@ function UseCases() {
             </section>
 
             {/* ── CTA ── */}
-            <section className="uc-cta-section">
+            <section className="tc-cta-section">
                 <div className="container">
                     <motion.div
-                        className="uc-cta-box"
+                        className="tc-cta-box"
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.75 }}
                     >
-                        <div className="uc-cta-content">
+                        <div className="tc-cta-content">
                             <div className="uc-cta-pill">LET'S BUILD YOURS NEXT</div>
                             <h2>Have a Similar Challenge?</h2>
                             <p>
                                 Tell us what's slowing your Salesforce org down — we'll show
                                 you exactly how we'd fix it.
                             </p>
-                            <a href="/contact" className="uc-cta-btn">
+                            <a href="/contact" className="tc-cta-btn">
                                 Start a Conversation <FaArrowRight />
                             </a>
                         </div>
@@ -178,4 +169,4 @@ function UseCases() {
     );
 }
 
-export default UseCases;
+export default Testcase;
