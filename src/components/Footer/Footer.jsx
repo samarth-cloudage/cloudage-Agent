@@ -1,7 +1,10 @@
 import "./Footer.css";
-import CloudAgeLogo from "../../assets/images/CloudAgeLogo.png";
+//import CloudAgeLogo from "../../assets/images/CloudAgeLogo.png";
+import CloudAgeLogos from "../../assets/images/CloudAgeLogos.png";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
+//import SalesforcePartnerLogo from "../../assets/images/SF-partner.png";
+import gstudio from "../../assets/images/gstudio.png";
 
 function Footer() {
 
@@ -14,13 +17,14 @@ function Footer() {
             <div className="container footer-container">
                 {/* ── Col 1: Brand ── */}
                 <div className="footer-col footer-brand">
-                    <img src={CloudAgeLogo} alt="CloudAge Informatica Logo" className="footer-logo" />
-
+                    <img src={CloudAgeLogos} alt="CloudAge Informatica Logo" className="footer-logo" />
+                    {/* <img src={SalesforcePartnerLogo} alt="Salesforce Partner Logo" className="footer-partner-logo" /> */}
+                    <img src={gstudio} alt="gstudio Logo" className="footer-gstudio-logo" />
                     <p className="footer-tagline">
                         Solutions That
-                        <br />
+                    
                         Drive Real
-                        <br />
+                      
                         Growth.
                     </p>
 

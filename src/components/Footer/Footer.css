@@ -76,23 +76,29 @@
     display: block;
     margin-bottom: 20px;
 }
-
+/* salesforce partner badge — sits under the main logo */
+.footer-partner-logo {
+    height: 240px;
+    width: auto;
+    object-fit: contain;
+    object-position: left center;
+    display: block;
+    margin: -120px 0 -100px;
+}
 /* tagline below logo — fills space to align with last service link */
 .footer-tagline {
     font-family: "Sora", "Segoe UI", sans-serif;
-    font-size: clamp(28px, 2.6vw, 38px);
+    font-size: clamp(18px, 1.4vw, 22px);
     font-weight: 800;
-    line-height: 1.22;
-    letter-spacing: -0.04em;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
     color: rgba(255, 255, 255, .92);
+    white-space: nowrap;
 
-    margin-top: -8px;
-    /* move text closer to logo */
+    margin-top: 4px;
     margin-bottom: 0;
-
     flex: unset;
 }
-
 /* social icons */
 .social-icons {
     display: flex;
@@ -144,7 +150,15 @@
     flex-direction: column;
     gap: 4px;
 }
-
+.footer-gstudio-logo {
+    height: 110px;
+    width: auto;
+    object-fit: contain;
+    object-position: left center;
+    display: block;
+    margin: -40px 0 30px;
+    padding-right: 10px;
+}
 .footer-links li a {
     display: flex;
     align-items: center;
@@ -312,7 +326,12 @@ a.fc-link:hover {
         display: none;
     }
 }
-
+@media (max-width: 768px) {
+    .footer-tagline {
+        white-space: normal;
+        font-size: 20px;
+    }
+}
 @media (max-width: 480px) {
     .footer {
         padding: 50px 0 0;

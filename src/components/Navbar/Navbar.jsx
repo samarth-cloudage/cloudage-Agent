@@ -57,7 +57,6 @@ function Navbar() {
         { path: "/about", name: "About" },
         { path: "/services", name: "Services" },
         { path: "/UseCases", name: "Use-Case" },
-        { path: "/Testcase", name: "Testcase" },
         { path: "/contact", name: "Contact" },
     ];
 
