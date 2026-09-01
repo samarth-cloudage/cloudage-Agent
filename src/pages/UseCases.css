@@ -76,7 +76,7 @@
 .uc-hero .section-pill {
     background: rgba(56, 189, 248, 0.12);
     border-color: rgba(56, 189, 248, 0.35);
-    color: var(--sky);
+    color: #93c5fd;
 }
 
 .uc-hero h1 {
