@@ -49,6 +49,7 @@
     #04133f 45%,
     #0a1d56 100%
   );
+   padding: 45px 0 50px; /* reduced */
 }
 
 
@@ -319,7 +320,7 @@
 
 /* ── CTA ── */
 .uc-cta-section {
-    padding: 60px 0 100px;
+    padding: 60px 0 50px;
 }
 
 .uc-cta-box {
@@ -341,7 +342,7 @@
     top: -140px;
 }
 .uc-cta-section {
-    padding: 60px 0 100px;
+    padding: 50px 0 50px;
     position: relative;
     overflow: hidden;
 }
@@ -433,7 +434,7 @@
 }
 
 .uc-cases-section {
-    padding: 90px 0 30px;
+    padding: 50px 0 0px;
     position: relative;
     overflow: hidden;
 }
