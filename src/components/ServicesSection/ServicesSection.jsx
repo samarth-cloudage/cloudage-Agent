@@ -82,7 +82,7 @@ function ServicesSection() {
                 <motion.div className="svc-cta" {...fadeUp(0.2)}>
                     <div className="svc-cta-text">
                         <h3>Not sure where to start?</h3>
-                        <p>Our consultants will audit your current setup and map out a roadmap that makes sense for your business — at no cost.</p>
+                        <p>Our consultants will audit your current setup and map out a roadmap that makes sense for your business at no cost.</p>
                     </div>
                     <a href="/contact" className="svc-cta-btn">
                         Get a Free Audit <FaArrowRight />

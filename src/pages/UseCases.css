@@ -326,7 +326,7 @@
 .uc-cta-box {
     background: linear-gradient(120deg, var(--brand) 0%, var(--indigo) 55%, #6d28d9 100%);
     border-radius: 28px;
-    padding: 64px;
+    padding: 40px;
     position: relative;
     overflow: hidden;
 }

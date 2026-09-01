@@ -27,7 +27,7 @@ const features = [
     {
         icon: <FaUserTie />,
         title: "Integrity & Transparency",
-        text: "Honest communication, fair pricing, and delivering exactly what we promise — nothing hidden.",
+        text: "Honest communication, fair pricing, and delivering exactly what we promise nothing hidden.",
     },
     {
         icon: <FaShieldAlt />,
@@ -37,7 +37,7 @@ const features = [
     {
         icon: <FaClock />,
         title: "On-Time Delivery",
-        text: "Structured planning and agile execution means you go live on the date we agreed — not later.",
+        text: "Structured planning and agile execution means you go live on the date we agreed not later.",
     },
     {
         icon: <FaHeadset />,
@@ -47,7 +47,7 @@ const features = [
     {
         icon: <FaHandshake />,
         title: "Beyond Just Development",
-        text: "We build long-term partnerships with continuous support — not one-and-done projects.",
+        text: "We build long-term partnerships with continuous support not one and done projects.",
     },
 ];
 

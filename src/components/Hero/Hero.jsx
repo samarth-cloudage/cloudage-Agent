@@ -28,7 +28,7 @@ function Hero() {
 
                     {/* Sub */}
                     <motion.p className="hero-sub" {...fadeUp(0.2)}>
-                        From Salesforce consulting to custom web applications — CloudAge Informatica helps businesses streamline operations, automate processes
+                        From Salesforce consulting to custom web applications CloudAge Informatica helps businesses streamline operations, automate processes
                         and grow faster with the right technology.
                     </motion.p>
 
