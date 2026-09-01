@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cloudage-website.pages.dev/sitemap.xml
+Sitemap: https://cloudageinformatica.com/sitemap.xml
