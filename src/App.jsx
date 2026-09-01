@@ -14,6 +14,7 @@ import UseCases from "./pages/UseCases";
 
 
 import "./App.css";
+import CursorFollower from "./components/CursorFollower";
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-
+      <CursorFollower />
       <GlowCursor />
       <Navbar />
 
