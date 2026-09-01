@@ -128,22 +128,12 @@
     margin-bottom: 0;
 }
 
-.uc-case-card.reverse {
-    grid-template-columns: 1fr 300px;
-}
 
-.uc-case-card.reverse .uc-case-visual {
-    order: 2;
-}
-
-.uc-case-card.reverse .uc-case-body {
-    order: 1;
-}
 
 /* alternating accent per card index */
-.uc-case-card:nth-child(1) .uc-case-visual { background: linear-gradient(160deg, #0f172a 0%, #1d4ed8 100%); }
-.uc-case-card:nth-child(2) .uc-case-visual { background: linear-gradient(160deg, #0f172a 0%, #4f46e5 100%); }
-.uc-case-card:nth-child(3) .uc-case-visual { background: linear-gradient(160deg, #0f172a 0%, #0891b2 100%); }
+.uc-case-card:nth-child(3n+1) .uc-case-visual { background: linear-gradient(160deg, #0f172a 0%, #4f46e5 100%); }
+.uc-case-card:nth-child(3n+2) .uc-case-visual { background: linear-gradient(160deg, #0f172a 0%, #4f46e5 100%); }
+.uc-case-card:nth-child(3n+3) .uc-case-visual { background: linear-gradient(160deg, #0f172a 0%, #4f46e5 100%); }
 
 .uc-case-visual {
     display: flex;

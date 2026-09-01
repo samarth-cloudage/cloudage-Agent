@@ -1,10 +1,11 @@
 import "./Footer.css";
 //import CloudAgeLogo from "../../assets/images/CloudAgeLogo.png";
-import CloudAgeLogos from "../../assets/images/CloudAgeLogos.png";
+import CloudAgeLogos from "../../assets/images/CloudAgeLogott1-Photoroom.png";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
 //import SalesforcePartnerLogo from "../../assets/images/SF-partner.png";
-import gstudio from "../../assets/images/gstudio.png";
+//import gstudio from "../../assets/images/gstudio.png";
+import gstudio from "../../assets/images/testpartner.png";
 
 function Footer() {
 

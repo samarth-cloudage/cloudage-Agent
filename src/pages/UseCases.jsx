@@ -4,6 +4,8 @@ import {
     FaUniversity,
     FaHotel,
     FaFileInvoiceDollar,
+    FaUsers,
+    FaChartLine,
     FaArrowRight,
     FaCheckCircle,
 } from "react-icons/fa";
@@ -73,7 +75,45 @@ const cases = [
             { val: "70%", label: "Team Productivity Boost" },
         ],
     },
-    
+    {
+        icon: <FaUsers />,
+        tag: "Low-Code Migration",
+        client: "Leading HR Software & Service Company, USA",
+        title: "Merging Multiple Salesforce Orgs with a Low-Code Rewrite",
+        challenge:
+            "After acquiring another company, this HR software provider was left managing multiple Salesforce orgs built on outdated, soon-to-be-unsupported Process Builders — with no unified structure to build on.",
+        solution: [
+            "Ran a comprehensive analysis of every org and the business processes inside them",
+            "Rewrote entire business functions using Lightning Flows in a single unified org",
+            "Layered in Apex customizations only where truly required",
+            "Followed Salesforce best practices throughout to keep the result scalable",
+        ],
+        stats: [
+            { val: "100%", label: "Merge Accuracy" },
+            { val: "90%", label: "Solution Built Low-Code" },
+            { val: "0", label: "Business Logic Missed" },
+        ],
+    },
+    {
+        icon: <FaChartLine />,
+        tag: "Salesforce CPQ",
+        client: "Global Customer Experience Management Company",
+        title: "Building a Salesforce CPQ Engine for Complex, Multi-Region Sales",
+        challenge:
+            "This company's sales and quoting process needed to handle deeply interdependent product configurations, region-specific dynamic pricing, multi-tiered approvals, and real-time sync across ERP, CRM, and supply chain systems — all while staying compliant across global markets.",
+        solution: [
+            "Built an advanced configuration engine with dynamic rules and constraints for accurate, consistent quotes",
+            "Created custom pricing algorithms for regional variation, material costs, and customer-specific discounts",
+            "Automated multi-tiered approval workflows across departments and regional offices",
+            "Integrated ERP, CRM, and supply chain tools in real time using MuleSoft",
+            "Designed a compliance framework covering international regulations and standards",
+        ],
+        stats: [
+            { val: "100%", label: "Configuration Accuracy" },
+            { val: "60%", label: "Faster Approvals" },
+            { val: "Global", label: "Compliance Achieved" },
+        ],
+    },
 ];
 
 function UseCases() {
@@ -102,7 +142,7 @@ function UseCases() {
                     {cases.map((item, i) => (
                         <motion.div
                             key={item.title}
-                            className={`uc-case-card ${i % 2 === 1 ? "reverse" : ""}`}
+                           className="uc-case-card"
                             {...fadeUp(i * 0.1)}
                         >
                             <div className="uc-case-visual">

@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import CloudAgeLogo from "../../assets/images/CloudAgeLogo.png";
+import CloudAgeLogo from "../../assets/images/CloudAgeLogos.png";
 import { FaBars, FaTimes, FaArrowRight } from "react-icons/fa";
 
 function Navbar() {
@@ -56,7 +56,7 @@ function Navbar() {
         { path: "/", name: "Home" },
         { path: "/about", name: "About" },
         { path: "/services", name: "Services" },
-        { path: "/UseCases", name: "Use-Case" },
+        { path: "/UseCases", name: "Case Studies" },
         { path: "/contact", name: "Contact" },
     ];
 
