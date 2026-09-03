@@ -1,16 +1,32 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./CursorFollower.css";
 
 function CursorFollower() {
     const dotRef = useRef(null);
     const ringRef = useRef(null);
+    const [isDesktop, setIsDesktop] = useState(false);
 
     useEffect(() => {
+        const checkDesktop = () => {
+            const hasFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+            const isWideEnough = window.innerWidth > 1024;
+            setIsDesktop(hasFinePointer && isWideEnough);
+        };
+
+        checkDesktop();
+        window.addEventListener("resize", checkDesktop);
+        return () => window.removeEventListener("resize", checkDesktop);
+    }, []);
+
+    useEffect(() => {
+        if (!isDesktop) return; // skip everything on mobile/tablet
+
         const dot = dotRef.current;
         const ring = ringRef.current;
 
         let mouseX = 0, mouseY = 0;
         let ringX = 0, ringY = 0;
+        let rafId;
 
         const onMouseMove = (e) => {
             mouseX = e.clientX;
@@ -23,7 +39,7 @@ function CursorFollower() {
             ringX += (mouseX - ringX) * 0.15;
             ringY += (mouseY - ringY) * 0.15;
             ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
-            requestAnimationFrame(animateRing);
+            rafId = requestAnimationFrame(animateRing);
         };
 
         window.addEventListener("mousemove", onMouseMove);
@@ -41,12 +57,15 @@ function CursorFollower() {
 
         return () => {
             window.removeEventListener("mousemove", onMouseMove);
+            cancelAnimationFrame(rafId);
             hoverables.forEach((el) => {
                 el.removeEventListener("mouseenter", onEnter);
                 el.removeEventListener("mouseleave", onLeave);
             });
         };
-    }, []);
+    }, [isDesktop]);
+
+    if (!isDesktop) return null; // don't render dot/ring at all on mobile/tablet
 
     return (
         <>
