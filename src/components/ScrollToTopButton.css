@@ -97,7 +97,7 @@
 /* ── MOBILE ── */
 @media (max-width: 768px) {
     .scroll-top-btn {
-        bottom: 140px;
+        bottom: 100px;
         right: 36px;
         width: 44px;
         height: 44px;
