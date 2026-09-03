@@ -1,7 +1,7 @@
 .scroll-top-btn {
     position: fixed;
     bottom: 96px;
-    right: 32px;
+    right: 28px;
     width: 52px;
     height: 52px;
     border-radius: 50%;
@@ -55,7 +55,6 @@
 .ring-progress {
     fill: none;
     stroke: url(#scrollGradient);
-    stroke: #60a5fa;
     stroke-width: 2.5;
     stroke-linecap: round;
     transition: stroke-dashoffset 0.1s linear;
@@ -68,19 +67,7 @@
     transition: transform 0.25s ease;
 }
 
-@media (max-width: 768px) {
-    .scroll-top-btn {
-        bottom: 20px;
-        right: 20px;
-        width: 46px;
-        height: 46px;
-    }
-
-    .scroll-top-icon {
-        font-size: 13px;
-    }
-}
-
+/* ── TABLET (iPad) ── */
 @media (max-width: 1024px) {
     .scroll-top-btn {
         bottom: 88px;
@@ -97,8 +84,8 @@
 /* ── MOBILE ── */
 @media (max-width: 768px) {
     .scroll-top-btn {
-        bottom: 140px;
-        right: 36px;
+        bottom: 80px;
+        right: 18px;
         width: 44px;
         height: 44px;
     }
