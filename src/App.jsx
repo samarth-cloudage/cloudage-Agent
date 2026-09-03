@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import GlowCursor from "./components/GlowCursor";
 import ScrollToTop from "./components/ScrollToTop";
+import SalesforceChat from "./components/SalesforceChat";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -30,7 +31,7 @@ function App() {
       <CursorFollower />
       <GlowCursor />
       <Navbar />
-
+      <SalesforceChat />
       <main className="page-content">
         <Routes>
           <Route path="/" element={<Home />} />
