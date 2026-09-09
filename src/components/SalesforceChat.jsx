@@ -31,14 +31,6 @@ export default function SalesforceChat() {
     };
 
     document.body.appendChild(script);
-
-    return () => {
-      // Optional: Clean up script tag on unmount
-      const existingScript = document.getElementById(scriptId);
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
   }, []);
 
   return null;
