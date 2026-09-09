@@ -8,6 +8,7 @@ import {
     FaChartLine,
     FaArrowRight,
     FaCheckCircle,
+    FaRobot,
 } from "react-icons/fa";
 
 const fadeUp = (delay = 0) => ({
@@ -114,6 +115,26 @@ const cases = [
             { val: "Global", label: "Compliance Achieved" },
         ],
     },
+    {
+    icon: <FaRobot />,
+    tag: "Einstein Bot + ServiceNow",
+    client: "Enterprise Service Organization",
+    title: "Automating Incident Management with Einstein Bot and ServiceNow",
+    challenge:
+        "The organization wanted to improve user support by answering common questions conversationally while preserving a reliable path to formal incident management. When self-service could not resolve an issue, the process needed to automatically create and track incidents in ServiceNow while capturing all required information dynamically.",
+    solution: [
+        "Implemented Einstein Bot to provide conversational self-service support",
+        "Built dynamic Salesforce Flows to guide users through contextual question capture",
+        "Integrated Salesforce with ServiceNow APIs for automated incident creation",
+        "Enabled real-time incident status tracking directly from the service journey",
+        "Connected bot interactions, guided screens, and ServiceNow workflows into a unified support process",
+    ],
+    stats: [
+        { val: "24/7", label: "Self-Service Support" },
+        { val: "100%", label: "Incident Visibility" },
+        { val: "Automated", label: "Incident Creation" },
+    ],
+},
 ];
 
 function UseCases() {
