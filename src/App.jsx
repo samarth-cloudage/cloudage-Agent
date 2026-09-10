@@ -28,11 +28,11 @@ function App() {
 
   return (
     <BrowserRouter>
+        <SalesforceChat />
       <ScrollToTop />
       <CursorFollower />
       <GlowCursor />
       <Navbar />
-      <SalesforceChat />
       <main className="page-content">
         <Routes>
           <Route path="/" element={<Home />} />
