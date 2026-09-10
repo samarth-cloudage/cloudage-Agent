@@ -12,8 +12,8 @@ export default function SalesforceChat() {
         window.embeddedservice_bootstrap.settings.language = "en_US";
 
         window.embeddedservice_bootstrap.init(
-          "00DgK00000Q8rue",
-          "CloudAge_Agent",
+          "00Daj000016dxyv",
+          "CloudAge_Agent_Deployment",
           "https://cloudage.my.site.com/ESWCloudAgeAgentDeploym1789037913097",
           {
             scrt2URL:
@@ -30,3 +30,5 @@ export default function SalesforceChat() {
 
   return null;
 }
+
+
