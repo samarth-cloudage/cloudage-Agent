@@ -13,7 +13,9 @@ export default function SalesforceChat() {
   console.error("Salesforce chat script failed to load", e);
 };
     script.onload = () => {
+      console.log("Bootstrap loaded");
       try {
+         console.log("Starting Agent");
         window.embeddedservice_bootstrap.settings.language = "en_US";
 
         window.embeddedservice_bootstrap.init(
@@ -25,8 +27,9 @@ export default function SalesforceChat() {
               "https://cloudage.my.salesforce-scrt.com",
           }
         );
+         console.log("Init called");
       } catch (err) {
-        console.error(err);
+        console.error("Agent Init Error", err);
       }
     };
 
