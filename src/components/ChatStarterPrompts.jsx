@@ -14,6 +14,28 @@ export default function ChatStarterPrompts() {
     "Contact CloudAge",
   ];
 
+  const sendPrompt = async (prompt) => {
+    try {
+      // Open chat if not already open
+      await window.embeddedservice_bootstrap?.utilAPI?.launchChat();
+
+      // Give chat a moment to initialize
+      setTimeout(() => {
+        if (
+          window.embeddedservice_bootstrap?.utilAPI?.sendTextMessage
+        ) {
+          window.embeddedservice_bootstrap.utilAPI.sendTextMessage(prompt);
+        } else {
+          console.error("sendTextMessage API not available");
+        }
+      }, 1000);
+
+      setVisible(false);
+    } catch (err) {
+      console.error("Failed to send prompt:", err);
+    }
+  };
+
   return (
     <div className="starter-prompts">
       <div className="starter-header">
@@ -25,9 +47,7 @@ export default function ChatStarterPrompts() {
         {prompts.map((prompt) => (
           <button
             key={prompt}
-            onClick={() => {
-              alert(prompt); // we'll replace later
-            }}
+            onClick={() => sendPrompt(prompt)}
           >
             {prompt}
           </button>
