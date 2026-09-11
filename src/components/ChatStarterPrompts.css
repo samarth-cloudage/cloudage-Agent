@@ -1,0 +1,47 @@
+.starter-prompts {
+  position: fixed;
+  bottom: 110px;
+  right: 25px;
+  width: 320px;
+
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,.15);
+  z-index: 9999;
+}
+
+.starter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.starter-header button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.starter-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.starter-buttons button {
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: .2s;
+}
+
+.starter-buttons button:hover {
+  background: #f4f6f9;
+}

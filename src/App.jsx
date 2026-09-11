@@ -7,7 +7,7 @@ import GlowCursor from "./components/GlowCursor";
 import ScrollToTop from "./components/ScrollToTop";
 import SalesforceChat from "./components/SalesforceChat";
 import ScrollToTopButton from "./components/ScrollToTopButton";
-
+import ChatStarterPrompts from "./components/ChatStarterPrompts";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -28,7 +28,10 @@ function App() {
 
   return (
     <BrowserRouter>
-        <SalesforceChat />
+      <>
+  <ChatStarterPrompts />
+  <SalesforceChat />
+</>
       <ScrollToTop />
       <CursorFollower />
       <GlowCursor />
