@@ -1,21 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./ChatStarterPrompts.css";
 
 export default function ChatStarterPrompts() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
-  useEffect(() => {
-    const showPrompts = () => setVisible(true);
-    const hidePrompts = () => setVisible(false);
-
-    window.addEventListener("showStarterPrompts", showPrompts);
-    window.addEventListener("hideStarterPrompts", hidePrompts);
-
-    return () => {
-      window.removeEventListener("showStarterPrompts", showPrompts);
-      window.removeEventListener("hideStarterPrompts", hidePrompts);
-    };
-  }, []);
+  if (!visible) return null;
 
   const prompts = [
     "Tell me about CloudAge",
@@ -27,30 +16,31 @@ export default function ChatStarterPrompts() {
 
   const sendPrompt = async (prompt) => {
     try {
-      console.log("Prompt clicked:", prompt);
+      // Open chat if not already open
+      await window.embeddedservice_bootstrap?.utilAPI?.launchChat();
 
-      // We'll connect this later
-      // sendTextMessage(prompt);
+      // Give chat a moment to initialize
+      setTimeout(() => {
+        if (
+          window.embeddedservice_bootstrap?.utilAPI?.sendTextMessage
+        ) {
+          window.embeddedservice_bootstrap.utilAPI.sendTextMessage(prompt);
+        } else {
+          console.error("sendTextMessage API not available");
+        }
+      }, 1000);
 
       setVisible(false);
     } catch (err) {
-      console.error(err);
+      console.error("Failed to send prompt:", err);
     }
   };
-
-  if (!visible) return null;
 
   return (
     <div className="starter-prompts">
       <div className="starter-header">
         <span>Need help? Ask CloudAge AI</span>
-
-        <button
-          className="close-btn"
-          onClick={() => setVisible(false)}
-        >
-          ✕
-        </button>
+        <button onClick={() => setVisible(false)}>✕</button>
       </div>
 
       <div className="starter-buttons">
