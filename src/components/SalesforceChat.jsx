@@ -12,26 +12,37 @@ export default function SalesforceChat() {
       script.onerror = (e) => {
   console.error("Salesforce chat script failed to load", e);
 };
-    script.onload = () => {
-      console.log("Bootstrap loaded");
-      try {
-         console.log("Starting Agent");
-        window.embeddedservice_bootstrap.settings.language = "en_US";
-        window.embeddedservice_bootstrap.settings.restrictSessionOnMessagingChannel = true;
-        window.embeddedservice_bootstrap.init(
-          "00Daj000016dxyv",
-          "CloudAge_Agent_Deployment",
-          "https://cloudage.my.site.com/ESWCloudAgeAgentDeploym1789037913097",
-          {
-            scrt2URL:
-              "https://cloudage.my.salesforce-scrt.com",
-          }
-        );
-         console.log("Init called");
-      } catch (err) {
-        console.error("Agent Init Error", err);
+  script.onload = async () => {
+  try {
+    window.embeddedservice_bootstrap.settings.language = "en_US";
+    window.embeddedservice_bootstrap.settings.restrictSessionOnMessagingChannel = true;
+
+    window.addEventListener(
+      "onEmbeddedMessagingReady",
+      async () => {
+        console.log("Clearing Session");
+
+        try {
+          await window.embeddedservice_bootstrap.userVerificationAPI.clearSession();
+          console.log("Session Cleared");
+        } catch (e) {
+          console.error(e);
+        }
       }
-    };
+    );
+
+    window.embeddedservice_bootstrap.init(
+      "00Daj000016dxyv",
+      "CloudAge_Agent_Deployment",
+      "https://cloudage.my.site.com/ESWCloudAgeAgentDeploym1789037913097",
+      {
+        scrt2URL: "https://cloudage.my.salesforce-scrt.com",
+      }
+    );
+  } catch (err) {
+    console.error(err);
+  }
+};
 
     document.body.appendChild(script);
   }, []);
