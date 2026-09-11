@@ -17,7 +17,7 @@ export default function SalesforceChat() {
       try {
          console.log("Starting Agent");
         window.embeddedservice_bootstrap.settings.language = "en_US";
-
+        window.embeddedservice_bootstrap.settings.restrictSessionOnMessagingChannel = true;
         window.embeddedservice_bootstrap.init(
           "00Daj000016dxyv",
           "CloudAge_Agent_Deployment",
