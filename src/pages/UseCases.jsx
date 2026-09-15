@@ -21,12 +21,12 @@ const cases = [
     tag: "Service Cloud",
     client: "Leading Retail Bank, USA",
     title: "Rebuilding a Fragile Service Cloud Org for Speed & Stability",
-    challenge: "Your existing challenge text...",
+    challenge: "A custom Service Cloud implementation was suffering from slow load times, frequent production failures, and data drifting out of sync with the bank's internal data lake — all built on a structure that didn't follow Salesforce best practices.",
     solution: [
-      "Your solution 1",
-      "Your solution 2",
-      "Your solution 3",
-      "Your solution 4"
+      "Stripped out unnecessary customizations that were the root cause of instability.",
+      "Shifted key business logic to Lightning Flows working alongside clean Apex.",
+      "Rebuilt integrations with proper error tracking and full stack-trace logging.",
+      "Brought the org back into full Salesforce security compliance."
     ],
     stats: [
       { val: "50%", label: "Faster Page Load" },
@@ -40,12 +40,12 @@ const cases = [
     tag: "Experience Cloud",
     client: "Global Hotel Chain",
     title: "Modernizing a Hard-Coded Experience Cloud Portal",
-    challenge: "Your existing challenge text...",
+    challenge: "An outdated Experience Cloud site — built on legacy Visualforce pages and Process Builder — couldn't keep pace with the hotel chain's constantly changing operational requirements, and every change risked breaking something else.",
     solution: [
-      "Your solution 1",
-      "Your solution 2",
-      "Your solution 3",
-      "Your solution 4"
+      "Rebuilt the site on a modern Lightning Web Runtime (LWR) foundation.",
+      "Replaced static, hard-coded logic with configurable, metadata-driven components.",
+      "Designed for multiple user personas across the hotel network.",
+      "Ran extensive testing to guarantee reliability at global scale."
     ],
     stats: [
       { val: "90%", label: "Less Development Time" },
@@ -59,12 +59,12 @@ const cases = [
     tag: "Automation",
     client: "Enterprise BPO Provider",
     title: "Automating Invoice Processing with OCR + Apex",
-    challenge: "Your existing challenge text...",
+    challenge: "Manual invoice creation from PDFs scattered across ERP systems and file servers was slow, error-prone, and left the client unable to scale operations across their high-profile client base.",
     solution: [
-      "Your solution 1",
-      "Your solution 2",
-      "Your solution 3",
-      "Your solution 4"
+      "Connected directly to file servers to pull invoice PDFs into Salesforce.",
+      "Used OCR to convert scanned invoice data into structured, usable records.",
+      "Built Apex batch jobs to auto-match invoices against purchase orders.",
+      "Routed only exceptions to staff — everything else ran automatically."
     ],
     stats: [
       { val: "70%", label: "Less Manual Work" },
@@ -78,12 +78,12 @@ const cases = [
     tag: "Low-Code Migration",
     client: "Leading HR Software & Service Company, USA",
     title: "Merging Multiple Salesforce Orgs with a Low-Code Rewrite",
-    challenge: "Your existing challenge text...",
+    challenge: "After acquiring another company, this HR software provider was left managing multiple Salesforce orgs built on outdated, soon-to-be-unsupported Process Builders — with no unified structure to build on.",
     solution: [
-      "Your solution 1",
-      "Your solution 2",
-      "Your solution 3",
-      "Your solution 4"
+      "Ran a comprehensive analysis of every org and the business processes inside them.",
+      "Rewrote entire business functions using Lightning Flows in a single unified org.",
+      "Layered in Apex customizations only where truly required.",
+      "Followed Salesforce best practices throughout to keep the result scalable."
     ],
     stats: [
       { val: "100%", label: "Merge Accuracy" },
@@ -97,13 +97,13 @@ const cases = [
     tag: "Salesforce CPQ",
     client: "Global Customer Experience Management Company",
     title: "Building a Salesforce CPQ Engine for Complex Multi-Region Sales",
-    challenge: "Your existing challenge text...",
+    challenge: "This company's sales and quoting process needed to handle deeply interdependent product configurations, region-specific dynamic pricing, multi-tiered approvals, and real-time sync across ERP, CRM, and supply chain systems — all while staying compliant across global markets.",
     solution: [
-      "Your solution 1",
-      "Your solution 2",
-      "Your solution 3",
-      "Your solution 4",
-      "Your solution 5"
+      "Built an advanced configuration engine with dynamic rules and constraints for accurate, consistent quotes.",
+      "Created custom pricing algorithms for regional variation, material costs, and customer-specific discounts.",
+      "Automated multi-tiered approval workflows across departments and regional offices.",
+      "Integrated ERP, CRM, and supply chain tools in real time using MuleSoft.",
+      "Designed a compliance framework covering international regulations and standards."
     ],
     stats: [
       { val: "100%", label: "Configuration Accuracy" },
@@ -117,13 +117,13 @@ const cases = [
     tag: "Einstein Bot + ServiceNow",
     client: "Enterprise Service Organization",
     title: "Automating Incident Management with Einstein Bot and ServiceNow",
-    challenge: "Your existing challenge text...",
+    challenge: "The client needed to streamline incident management by automating ticket creation, routing, and resolution, while ensuring seamless integration between Salesforce Einstein Bot and ServiceNow for efficient handling of service requests.",
     solution: [
-      "Your solution 1",
-      "Your solution 2",
-      "Your solution 3",
-      "Your solution 4",
-      "Your solution 5"
+      "Implemented an Einstein Bot to handle initial customer interactions and gather incident details.",
+      "Created custom workflows to route incidents to the appropriate teams.",
+      "Integrated with ServiceNow for seamless incident management and resolution.",
+      "Designed a user-friendly interface for customers to submit and track incidents.",
+      "Implemented reporting and analytics to monitor incident resolution times and customer satisfaction."
     ],
     stats: [
       { val: "24/7", label: "Self-Service Support" },
@@ -158,46 +158,45 @@ function UseCases() {
               className="uc-case-card"
               {...fadeUp(i * 0.1)}
             >
-              <div className="uc-case-visual">
-                <img
-                  src={item.image}
-                  alt={item.client}
-                  className="uc-case-image"
-                />
+       <div className="uc-case-body uc-case-body-full">
+  <h3>{item.title}</h3>
 
-                <div className="uc-case-tag">
-                  {item.tag}
-                </div>
+  <div className="uc-case-meta">
+    <span className="uc-case-tag">{item.tag}</span>
+    <span className="uc-case-client">{item.client}</span>
+  </div>
 
-                <div className="uc-case-client">
-                  {item.client}
-                </div>
-              </div>
+  <div className="uc-case-block">
+    <span className="uc-case-label">
+      The Challenge
+    </span>
+    <p>{item.challenge}</p>
+  </div>
 
-              <div className="uc-case-body">
-                <h3>{item.title}</h3>
+  <div className="uc-case-block uc-case-solution-row">
+    <div className="uc-case-solution-text">
+      <span className="uc-case-label">
+        What We Did
+      </span>
 
-                <div className="uc-case-block">
-                  <span className="uc-case-label">
-                    The Challenge
-                  </span>
-                  <p>{item.challenge}</p>
-                </div>
+      <ul className="uc-case-list">
+        {item.solution.map((line) => (
+          <li key={line}>
+            <FaCheckCircle />
+            {line}
+          </li>
+        ))}
+      </ul>
+    </div>
 
-                <div className="uc-case-block">
-                  <span className="uc-case-label">
-                    What We Did
-                  </span>
-
-                  <ul className="uc-case-list">
-                    {item.solution.map((line) => (
-                      <li key={line}>
-                        <FaCheckCircle />
-                        {line}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+    <div className="uc-case-solution-visual">
+      <img
+        src={item.image}
+        alt={item.client}
+        className="uc-case-image"
+      />
+    </div>
+  </div>
 
                 <div className="uc-case-stats-wrapper">
                   <span className="uc-case-label">
