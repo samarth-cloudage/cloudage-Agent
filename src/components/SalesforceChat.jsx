@@ -34,7 +34,7 @@ export default function SalesforceChat() {
 
         window.embeddedservice_bootstrap.init(
           "00Daj000016dxyv",
-          "CloudAge_Agent_Deployment",
+          "CloudAge_Agent",
           "https://cloudage.my.site.com/ESWCloudAgeAgent1789466082202",
           {
             scrt2URL: "https://cloudage.my.salesforce-scrt.com",
