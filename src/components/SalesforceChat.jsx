@@ -7,7 +7,7 @@ export default function SalesforceChat() {
     script.id = "salesforce-chat-script";
 
     script.src =
-      "https://cloudage.my.site.com/ESWCloudAgeAgentDeploym1789037913097/assets/js/bootstrap.min.js";
+      "https://cloudage.my.site.com/ESWCloudAgeAgent1789466082202/assets/js/bootstrap.min.js";
 
       script.onerror = (e) => {
   console.error("Salesforce chat script failed to load", e);
@@ -34,7 +34,7 @@ export default function SalesforceChat() {
     window.embeddedservice_bootstrap.init(
       "00Daj000016dxyv",
       "CloudAge_Agent_Deployment",
-      "https://cloudage.my.site.com/ESWCloudAgeAgentDeploym1789037913097",
+      "https://cloudage.my.site.com/ESWCloudAgeAgent1789466082202",
       {
         scrt2URL: "https://cloudage.my.salesforce-scrt.com",
       }
