@@ -63,6 +63,11 @@ function Footer() {
                                 <FaArrowRight /> Services
                             </Link>
                         </li>
+                         <li>
+                            <Link to="/casestudies">
+                                <FaArrowRight /> Case Studies
+                            </Link>
+                        </li>
                         <li>
                             <Link to="/contact">
                                 <FaArrowRight /> Contact
