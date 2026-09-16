@@ -1,3 +1,11 @@
 .page-content {
   padding-top: 0;
 }
+:root {
+  --brand: #2563eb;
+  --brand-dark: #1d4ed8;
+  --indigo: #4f46e5;
+  --sky: #38bdf8;
+  --deep: #0f172a;
+  --slate: #64748b;
+}

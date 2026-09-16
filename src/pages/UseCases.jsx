@@ -7,7 +7,14 @@ import HotelImg from "../assets/images/Hotel-chain.png";
 import BPOImg from "../assets/images/BPO.png";
 import GlobalImg from "../assets/images/Global-Customer-Experience.png";
 import EinsteinImg from "../assets/images/Einstein-Bot.png";
-
+import {
+  FaUniversity,
+  FaHotel,
+  FaFileInvoiceDollar,
+  FaUsers,
+  FaGlobe,
+  FaRobot,
+} from "react-icons/fa";
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 44 },
   whileInView: { opacity: 1, y: 0 },
@@ -21,7 +28,7 @@ const cases = [
     tag: "Service Cloud",
     client: "Leading Retail Bank, USA",
     title: "Rebuilding a Fragile Service Cloud Org for Speed & Stability",
-    challenge: "A custom Service Cloud implementation was suffering from slow load times, frequent production failures, and data drifting out of sync with the bank's internal data lake — all built on a structure that didn't follow Salesforce best practices.",
+    challenge: "A custom Service Cloud implementation was suffering from slow load times, frequent production failures, and data drifting out of sync with the bank's internal data lake all built on a structure that didn't follow Salesforce best practices.",
     solution: [
       "Stripped out unnecessary customizations that were the root cause of instability.",
       "Shifted key business logic to Lightning Flows working alongside clean Apex.",
@@ -40,7 +47,7 @@ const cases = [
     tag: "Experience Cloud",
     client: "Global Hotel Chain",
     title: "Modernizing a Hard-Coded Experience Cloud Portal",
-    challenge: "An outdated Experience Cloud site — built on legacy Visualforce pages and Process Builder — couldn't keep pace with the hotel chain's constantly changing operational requirements, and every change risked breaking something else.",
+    challenge: "An outdated Experience Cloud site built on legacy Visualforce pages and Process Builder couldn't keep pace with the hotel chain's constantly changing operational requirements, and every change risked breaking something else.",
     solution: [
       "Rebuilt the site on a modern Lightning Web Runtime (LWR) foundation.",
       "Replaced static, hard-coded logic with configurable, metadata-driven components.",
@@ -64,7 +71,7 @@ const cases = [
       "Connected directly to file servers to pull invoice PDFs into Salesforce.",
       "Used OCR to convert scanned invoice data into structured, usable records.",
       "Built Apex batch jobs to auto-match invoices against purchase orders.",
-      "Routed only exceptions to staff — everything else ran automatically."
+      "Routed only exceptions to staff everything else ran automatically."
     ],
     stats: [
       { val: "70%", label: "Less Manual Work" },
@@ -78,7 +85,7 @@ const cases = [
     tag: "Low-Code Migration",
     client: "Leading HR Software & Service Company, USA",
     title: "Merging Multiple Salesforce Orgs with a Low-Code Rewrite",
-    challenge: "After acquiring another company, this HR software provider was left managing multiple Salesforce orgs built on outdated, soon-to-be-unsupported Process Builders — with no unified structure to build on.",
+    challenge: "After acquiring another company, this HR software provider was left managing multiple Salesforce orgs built on outdated, soon-to-be-unsupported Process Builders with no unified structure to build on.",
     solution: [
       "Ran a comprehensive analysis of every org and the business processes inside them.",
       "Rewrote entire business functions using Lightning Flows in a single unified org.",
@@ -97,7 +104,7 @@ const cases = [
     tag: "Salesforce CPQ",
     client: "Global Customer Experience Management Company",
     title: "Building a Salesforce CPQ Engine for Complex Multi-Region Sales",
-    challenge: "This company's sales and quoting process needed to handle deeply interdependent product configurations, region-specific dynamic pricing, multi-tiered approvals, and real-time sync across ERP, CRM, and supply chain systems — all while staying compliant across global markets.",
+    challenge: "This company's sales and quoting process needed to handle deeply interdependent product configurations, region-specific dynamic pricing, multi-tiered approvals, and real-time sync across ERP, CRM, and supply chain systems all while staying compliant across global markets.",
     solution: [
       "Built an advanced configuration engine with dynamic rules and constraints for accurate, consistent quotes.",
       "Created custom pricing algorithms for regional variation, material costs, and customer-specific discounts.",
@@ -132,7 +139,24 @@ const cases = [
     ]
   }
 ];
-
+const getClientIcon = (tag) => {
+  switch (tag) {
+    case "Service Cloud":
+      return <FaUniversity />;
+    case "Experience Cloud":
+      return <FaHotel />;
+    case "Automation":
+      return <FaFileInvoiceDollar />;
+    case "Low-Code Migration":
+      return <FaUsers />;
+    case "Salesforce CPQ":
+      return <FaGlobe />;
+    case "Einstein Bot + ServiceNow":
+      return <FaRobot />;
+    default:
+      return <FaUsers />;
+  }
+};
 function UseCases() {
   return (
     <div className="usecases-v2">
@@ -151,6 +175,7 @@ function UseCases() {
       </section>
 
       <section className="uc-cases-section">
+        
         <div className="container">
           {cases.map((item, i) => (
             <motion.div
@@ -159,12 +184,22 @@ function UseCases() {
               {...fadeUp(i * 0.1)}
             >
        <div className="uc-case-body uc-case-body-full">
+
   <h3>{item.title}</h3>
 
   <div className="uc-case-meta">
-    <span className="uc-case-tag">{item.tag}</span>
-    <span className="uc-case-client">{item.client}</span>
+  <span className="uc-case-label">CLIENT</span>
+
+  <div className="uc-client-box">
+    <span className="uc-client-icon">
+      {getClientIcon(item.tag)}
+    </span>
+
+    <span className="uc-client-name">
+      {item.client}
+    </span>
   </div>
+</div>
 
   <div className="uc-case-block">
     <span className="uc-case-label">
@@ -173,30 +208,28 @@ function UseCases() {
     <p>{item.challenge}</p>
   </div>
 
-  <div className="uc-case-block uc-case-solution-row">
-    <div className="uc-case-solution-text">
-      <span className="uc-case-label">
-        What We Did
-      </span>
+  <div className="uc-case-block">
+  <span className="uc-case-label">
+    What We Did
+  </span>
 
-      <ul className="uc-case-list">
-        {item.solution.map((line) => (
-          <li key={line}>
-            <FaCheckCircle />
-            {line}
-          </li>
-        ))}
-      </ul>
-    </div>
+  <ul className="uc-case-list">
+    {item.solution.map((line) => (
+      <li key={line}>
+        <FaCheckCircle />
+        {line}
+      </li>
+    ))}
+  </ul>
+</div>
 
-    <div className="uc-case-solution-visual">
-      <img
-        src={item.image}
-        alt={item.client}
-        className="uc-case-image"
-      />
-    </div>
-  </div>
+<div className="uc-case-image-wrapper">
+  <img
+    src={item.image}
+    alt={item.client}
+    className="uc-case-image"
+  />
+</div>
 
                 <div className="uc-case-stats-wrapper">
                   <span className="uc-case-label">
@@ -235,7 +268,7 @@ function UseCases() {
               <h2>Have a Similar Challenge?</h2>
 
               <p>
-                Tell us what's slowing your Salesforce org down —
+                Tell us what's slowing your Salesforce org down
                 we'll show you exactly how we'd fix it.
               </p>
 

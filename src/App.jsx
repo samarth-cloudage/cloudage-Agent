@@ -28,7 +28,9 @@ function App() {
 
   return (
     <BrowserRouter>
+
         <SalesforceChat />
+   
       <ScrollToTop />
       <CursorFollower />
       <GlowCursor />
