@@ -2,18 +2,10 @@ import { useEffect } from "react";
 
 export default function SalesforceChat() {
   useEffect(() => {
-    if (document.getElementById("salesforce-chat-script")) return;
-    const script = document.createElement("script");
-    script.id = "salesforce-chat-script";
+    const script = document.getElementById("salesforce-chat-script");
+    if (!script) return;
 
-    script.src =
-      "https://cloudage.my.site.com/ESWCloudAgeAgent1789466082202/assets/js/bootstrap.min.js";
-
-    script.onerror = (e) => {
-      console.error("Salesforce chat script failed to load", e);
-    };
-
-    script.onload = () => {
+    const initChat = () => {
       try {
         window.embeddedservice_bootstrap.settings.language = "en_US";
         window.embeddedservice_bootstrap.settings.restrictSessionOnMessagingChannel = true;
@@ -21,7 +13,7 @@ export default function SalesforceChat() {
         let sessionCleared = false;
 
         window.addEventListener("onEmbeddedMessagingReady", async () => {
-          if (sessionCleared) return; // guard against repeat firing
+          if (sessionCleared) return;
           sessionCleared = true;
 
           try {
@@ -35,7 +27,7 @@ export default function SalesforceChat() {
         window.embeddedservice_bootstrap.init(
           "00Daj000016dxyv",
           "CloudAge_Agent",
-          "https://cloudage.my.site.com/ESWCloudAgeAgent1789466082202",
+          "https://cloudage.my.site.com/ESWCloudAgeAgent1789553392513",
           {
             scrt2URL: "https://cloudage.my.salesforce-scrt.com",
           }
@@ -45,7 +37,19 @@ export default function SalesforceChat() {
       }
     };
 
-    document.body.appendChild(script);
+    // If script already loaded before this effect ran, init immediately
+    if (window.embeddedservice_bootstrap) {
+      initChat();
+    } else {
+      script.addEventListener("load", initChat);
+      script.addEventListener("error", (e) =>
+        console.error("Salesforce chat script failed to load", e)
+      );
+    }
+
+    return () => {
+      script.removeEventListener("load", initChat);
+    };
   }, []);
 
   return null;
